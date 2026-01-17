@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Icons, APP_NAME } from '../constants';
 
@@ -13,6 +12,9 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="text-xl font-bold tracking-tight text-slate-900">{APP_NAME}</span>
+          </div>
+          <div className="flex items-center gap-6">
+            <a href="https://dilli-babu-k.github.io/terms-/" className="text-sm font-semibold text-slate-600 hover:text-emerald-600 transition-colors">Terms & Conditions</a>
           </div>
         </div>
       </header>
