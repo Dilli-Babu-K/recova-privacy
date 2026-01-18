@@ -1,14 +1,9 @@
-
 import React from 'react';
 
 export const APP_NAME = "RECOVA";
-// Dynamically set last updated to today's date
-export const LAST_UPDATED = new Date().toLocaleDateString('en-US', {
-  month: 'long',
-  day: 'numeric',
-  year: 'numeric'
-});
-export const CONTACT_EMAIL = "recova.app0@gmail.com";
+// Updated to specific date requested: January 18, 2026
+export const LAST_UPDATED = "January 18, 2026";
+export const CONTACT_EMAIL = "support@recova.app";
 
 export const Icons = {
   Lock: () => (

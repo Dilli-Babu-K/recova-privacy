@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Layout } from './components/Layout';
 import { Icons, APP_NAME, LAST_UPDATED, CONTACT_EMAIL } from './constants';
@@ -46,18 +45,22 @@ const App: React.FC = () => {
               { id: 'intro', title: 'Introduction' },
               { id: 'collect', title: '1. Information We Collect' },
               { id: 'usage', title: '2. How We Use Info' },
-              { id: 'storage', title: '3. Data Storage' },
-              { id: 'sharing', title: '4. Data Sharing' },
-              { id: 'retention', title: '5. Data Retention' },
-              { id: 'rights', title: '6. Your Rights' },
-              { id: 'children', title: "7. Children's Privacy" },
-              { id: 'changes', title: '8. Changes to Policy' },
-              { id: 'contact', title: '9. Contact Us' },
+              { id: 'medical', title: '3. Fitness vs Medical' },
+              { id: 'accuracy', title: '4. Data Accuracy' },
+              { id: 'storage', title: '5. Storage & Security' },
+              { id: 'sharing', title: '6. Data Sharing' },
+              { id: 'ads', title: '7. Ads & Analytics' },
+              { id: 'notifications', title: '8. Notifications' },
+              { id: 'retention', title: '9. Data Retention' },
+              { id: 'deletion', title: '10. Account Deletion' },
+              { id: 'children', title: '11. Children\'s Privacy' },
+              { id: 'changes', title: '12. Policy Changes' },
+              { id: 'contact', title: '13. Contact' },
             ].map((link) => (
               <a 
                 key={link.id} 
                 href={`#${link.id}`} 
-                className="block py-2 text-slate-500 hover:text-emerald-600 transition-all font-medium border-l-2 border-transparent hover:border-emerald-600 pl-4"
+                className="block py-2 text-slate-500 hover:text-emerald-600 transition-all font-medium border-l-2 border-transparent hover:border-emerald-600 pl-4 text-sm"
               >
                 {link.title}
               </a>
@@ -78,123 +81,99 @@ const App: React.FC = () => {
 
           <Section id="collect" title="1. Information We Collect">
             <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm mb-6">
-              <h4 className="text-lg font-bold text-slate-800 mb-3">a) Account Information</h4>
-              <p className="mb-4">Depending on how you use the app, we may collect:</p>
-              <ul className="list-none space-y-3">
-                <li className="flex gap-3">
-                  <span className="text-emerald-600 font-bold">01</span>
-                  <span><strong>Google account identifier</strong> (if you sign in with Google)</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-emerald-600 font-bold">02</span>
-                  <span><strong>Anonymous user identifier</strong> (if you use Guest mode)</span>
-                </li>
-              </ul>
-              <div className="mt-6 p-4 bg-slate-50 rounded-xl text-sm border-l-4 border-slate-300 italic">
-                We do not access your Google password, emails, contacts, or personal files.
-              </div>
-            </div>
-
-            <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm mb-6">
-              <h4 className="text-lg font-bold text-slate-800 mb-3">b) Health & Recovery Data (User-Provided)</h4>
-              <p className="mb-4">Recova collects only the data you <strong>manually enter</strong>, such as:</p>
+              <h4 className="text-lg font-bold text-slate-800 mb-3">a) User-Provided Data</h4>
+              <p className="mb-4">Recova may collect the following data you provide:</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {['Height and weight', 'Sleep quality inputs', 'Training intensity inputs', 'Recovery actions', 'Recovery scores and trends'].map(item => (
+                {['Age', 'Gender', 'Height and weight', 'Sleep quality inputs', 'Training intensity inputs', 'Recovery interactions'].map(item => (
                   <div key={item} className="bg-emerald-50/50 border border-emerald-100 p-3 rounded-xl text-emerald-900 text-sm font-semibold flex items-center gap-2">
                     <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div>
                     {item}
                   </div>
                 ))}
               </div>
-              <div className="mt-8 p-5 bg-red-50 text-red-800 rounded-2xl border border-red-100">
-                <p className="font-bold text-sm mb-2 uppercase tracking-tight">Recova does NOT collect:</p>
-                <ul className="text-sm space-y-1.5 opacity-90 list-disc ml-5 font-medium">
-                  <li>Medical records</li>
-                  <li>Heart rate or biometric sensor data</li>
-                  <li>GPS location</li>
-                  <li>Contacts or messages</li>
-                </ul>
-              </div>
             </div>
-
             <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
-              <h4 className="text-lg font-bold text-slate-800 mb-3">c) App Usage & Diagnostics</h4>
-              <p>We may collect limited technical data such as app crashes and performance diagnostics. This data is used only to improve stability and reliability.</p>
+              <h4 className="text-lg font-bold text-slate-800 mb-3">b) App Usage Data</h4>
+              <ul className="list-disc ml-6 space-y-1">
+                <li>Feature interactions</li>
+                <li>App navigation events</li>
+                <li>Crash and performance data</li>
+              </ul>
             </div>
           </Section>
 
-          <Section id="usage" title="2. How We Use Your Information">
-            <p>We use your information to:</p>
+          <Section id="usage" title="2. How We Use Your Data">
+            <p>Your data is used to:</p>
             <ul className="space-y-3 list-disc ml-6 marker:text-emerald-500">
-              <li>Calculate recovery and readiness scores</li>
-              <li>Display trends and insights</li>
-              <li>Improve app performance and user experience</li>
-              <li>Maintain secure authentication</li>
+              <li>Generate recovery scores and readiness insights</li>
+              <li>Personalize recovery recommendations</li>
+              <li>Improve app performance and features</li>
+              <li>Send notifications (if enabled)</li>
             </ul>
-            <p className="font-bold text-slate-900 mt-6 p-4 bg-emerald-50 rounded-xl border-l-4 border-emerald-600">
-              We do not sell or rent your personal data.
+          </Section>
+
+          <Section id="medical" title="3. Fitness Data Is Not Medical Data">
+            <p className="p-5 bg-blue-50 text-blue-800 rounded-2xl border border-blue-100 font-medium">
+              All recovery metrics, readiness scores, and CNS balance indicators are fitness-derived estimates, not medical or neurological health records.
+            </p>
+            <p className="mt-4">Recova does not collect clinical, diagnostic, or medical health data.</p>
+          </Section>
+
+          <Section id="accuracy" title="4. Data Accuracy Disclaimer">
+            <p>Recovery insights depend on user-reported information. Recova does not guarantee accuracy or completeness of generated insights.</p>
+          </Section>
+
+          <Section id="storage" title="5. Data Storage & Security">
+            <p>We implement reasonable security measures to protect user data. However, no system can guarantee complete security.</p>
+          </Section>
+
+          <Section id="sharing" title="6. Data Sharing">
+            <p>Recova:</p>
+            <ul className="list-disc ml-6 space-y-2 marker:text-emerald-500">
+              <li>Does not sell personal data</li>
+              <li>Does not share identifiable fitness data with advertisers</li>
+              <li>May use anonymized analytics for performance improvements</li>
+            </ul>
+          </Section>
+
+          <Section id="ads" title="7. Advertisements & Analytics">
+            <p>Third-party services may be used for:</p>
+            <ul className="list-disc ml-6 space-y-2 mb-4">
+              <li>Analytics</li>
+              <li>Advertising</li>
+            </ul>
+            <p className="bg-slate-50 p-4 rounded-xl text-sm border-l-4 border-slate-300 italic">
+              These services do not receive access to personally identifiable health or fitness data.
             </p>
           </Section>
 
-          <Section id="storage" title="3. Data Storage & Security">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="p-6 border border-slate-200 rounded-2xl bg-white shadow-sm hover:border-emerald-200 transition-colors">
-                <h5 className="font-bold text-slate-800 mb-2">Google Firebase</h5>
-                <p className="text-sm text-slate-500">Data is stored securely using industry-standard cloud infrastructure provided by Google.</p>
-              </div>
-              <div className="p-6 border border-slate-200 rounded-2xl bg-white shadow-sm hover:border-emerald-200 transition-colors">
-                <h5 className="font-bold text-slate-800 mb-2">Encryption</h5>
-                <p className="text-sm text-slate-500">All data transmitted between your device and our servers is encrypted using SSL/TLS protocols.</p>
-              </div>
-            </div>
-            <p className="text-sm italic mt-4 text-slate-400">While we take reasonable measures, no system can be guaranteed to be 100% secure.</p>
-          </Section>
-
-          <Section id="sharing" title="4. Data Sharing">
-            <p>Your data is shared only with:</p>
-            <ul className="list-disc ml-6 mb-4 marker:text-emerald-500">
-              <li><strong>Google Firebase services</strong> (for authentication and secure storage)</li>
+          <Section id="notifications" title="8. Notifications">
+            <p>You may receive notifications related to:</p>
+            <ul className="list-disc ml-6 space-y-2">
+              <li>Logging reminders</li>
+              <li>App updates</li>
             </ul>
-            <p className="bg-slate-900 text-slate-300 p-6 rounded-2xl border border-slate-800 font-medium">
-              We do not share your data with advertisers, data brokers, or unrelated third parties.
-            </p>
+            <p className="mt-4">You can disable notifications at any time through your device settings.</p>
           </Section>
 
-          <Section id="retention" title="5. Data Retention">
-            <p>Your data is retained:</p>
-            <ul className="list-disc ml-6 marker:text-emerald-500">
-              <li>While your account is active</li>
-              <li>Until you request deletion</li>
-            </ul>
-            <p className="mt-4">You may request deletion at any time, and your data will be purged from our active databases.</p>
+          <Section id="retention" title="9. Data Retention">
+            <p>We retain user data only as long as necessary to provide App functionality or until the user deletes their account.</p>
           </Section>
 
-          <Section id="rights" title="6. Your Rights">
-            <p className="mb-6">You have the full right to manage your data:</p>
-            <div className="grid grid-cols-2 gap-3 mb-8">
-              {['Access your data', 'Correct your data', 'Delete your data', 'Withdraw consent'].map(r => (
-                <div key={r} className="bg-white border border-slate-200 px-4 py-3 rounded-xl text-sm font-bold text-slate-700 shadow-sm text-center uppercase tracking-wider">{r}</div>
-              ))}
-            </div>
-            <div className="p-8 bg-emerald-600 text-white rounded-[2rem] shadow-2xl shadow-emerald-200/50">
-              <p className="font-bold mb-3 uppercase text-xs tracking-widest opacity-80">Data Deletion Request</p>
-              <p className="mb-4 text-emerald-50">To request data deletion, please contact us at:</p>
-              <a href={`mailto:${CONTACT_EMAIL}`} className="text-2xl md:text-3xl font-extrabold hover:text-emerald-200 transition-colors break-all underline decoration-white/30 underline-offset-8">
-                {CONTACT_EMAIL}
-              </a>
-            </div>
+          <Section id="deletion" title="10. Account Deletion">
+            <p>Users can request account deletion through the App. Upon deletion, associated data will be removed as required by applicable laws.</p>
           </Section>
 
-          <Section id="children" title="7. Children's Privacy">
-            <p>Recova is not intended for users under the age of 13. We do not knowingly collect data from children. If we discover we have inadvertently collected data from a child under 13, we will delete it immediately.</p>
+          <Section id="children" title="11. Children's Privacy">
+            <p>Recova is not intended for users under the age of 13. We do not knowingly collect data from children.</p>
           </Section>
 
-          <Section id="changes" title="8. Changes to This Policy">
-            <p>We may update this Privacy Policy as our app evolves. Any changes will be reflected directly on this page and within the Recova mobile application settings.</p>
+          <Section id="changes" title="12. Changes to This Policy">
+            <p>We may update this Privacy Policy periodically. Continued use of the App constitutes acceptance of changes.</p>
           </Section>
 
-          <Section id="contact" title="9. Contact Us">
-            <p className="mb-6 leading-relaxed">If you have questions about this Privacy Policy or how we handle your information, please reach out to us:</p>
+          <Section id="contact" title="13. Contact">
+            <p className="mb-6 leading-relaxed">For questions or concerns, contact us at:</p>
             <div className="flex flex-col items-start gap-4">
               <a href={`mailto:${CONTACT_EMAIL}`} className="group flex items-center gap-4 bg-slate-900 text-white px-6 py-4 rounded-2xl hover:bg-emerald-600 transition-all duration-300">
                 <div className="font-bold border-r border-white/20 pr-4">Email Us</div>
