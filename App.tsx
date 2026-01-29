@@ -43,19 +43,17 @@ const App: React.FC = () => {
             <h3 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-6">Sections</h3>
             {[
               { id: 'intro', title: 'Introduction' },
-              { id: 'collect', title: '1. Information We Collect' },
-              { id: 'usage', title: '2. How We Use Info' },
-              { id: 'medical', title: '3. Fitness vs Medical' },
-              { id: 'accuracy', title: '4. Data Accuracy' },
-              { id: 'storage', title: '5. Storage & Security' },
+              { id: 'overview', title: '1. Overview' },
+              { id: 'collect', title: '2. Info We Collect' },
+              { id: 'usage', title: '3. Usage' },
+              { id: 'processing', title: '4. Data Processing' },
+              { id: 'security', title: '5. Security' },
               { id: 'sharing', title: '6. Data Sharing' },
-              { id: 'ads', title: '7. Ads & Analytics' },
-              { id: 'notifications', title: '8. Notifications' },
-              { id: 'retention', title: '9. Data Retention' },
-              { id: 'deletion', title: '10. Account Deletion' },
-              { id: 'children', title: '11. Children\'s Privacy' },
-              { id: 'changes', title: '12. Policy Changes' },
-              { id: 'contact', title: '13. Contact' },
+              { id: 'rights', title: '7. User Rights' },
+              { id: 'retention', title: '8. Retention' },
+              { id: 'children', title: '9. Children’s Privacy' },
+              { id: 'updates', title: '10. Policy Updates' },
+              { id: 'contact', title: '11. Contact' },
             ].map((link) => (
               <a 
                 key={link.id} 
@@ -72,112 +70,136 @@ const App: React.FC = () => {
         <article className="flex-grow max-w-3xl">
           <div id="intro" className="prose prose-slate lg:prose-lg max-w-none mb-12 scroll-mt-24">
             <p className="text-xl text-slate-800 font-medium leading-relaxed border-l-4 border-emerald-500 pl-6 py-2 bg-emerald-50/30 rounded-r-xl">
-              Recova respects your privacy. This Privacy Policy explains how we collect, use, store, and protect your information when you use the Recova mobile application.
-            </p>
-            <p className="text-slate-500 mt-4">
-              By using Recova, you agree to this Privacy Policy.
+              Recova respects your privacy and is committed to protecting your personal information. This Privacy Policy explains what information we collect, why we collect it, and how it is used when you use the Recova mobile application (“App”).
             </p>
           </div>
 
-          <Section id="collect" title="1. Information We Collect">
-            <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm mb-6">
-              <h4 className="text-lg font-bold text-slate-800 mb-3">a) User-Provided Data</h4>
-              <p className="mb-4">Recova may collect the following data you provide:</p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {['Age', 'Gender', 'Height and weight', 'Sleep quality inputs', 'Training intensity inputs', 'Recovery interactions'].map(item => (
-                  <div key={item} className="bg-emerald-50/50 border border-emerald-100 p-3 rounded-xl text-emerald-900 text-sm font-semibold flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div>
-                    {item}
-                  </div>
-                ))}
+          <Section id="overview" title="1. Overview">
+            <p>Recova is a recovery-focused fitness awareness app. It relies primarily on user-reported inputs to provide perceived recovery insights.</p>
+            <p className="font-medium text-emerald-700">We intentionally limit data collection to what is strictly necessary to operate the app.</p>
+          </Section>
+
+          <Section id="collect" title="2. Information We Collect">
+            <div className="space-y-8">
+              <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+                <h3 className="text-lg font-bold text-slate-800 mb-3">2.1 Information You Provide Directly</h3>
+                <p className="mb-4 text-sm">When using Recova, you may voluntarily provide:</p>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+                  <li className="flex items-center gap-2 bg-emerald-50 p-2 rounded text-sm text-emerald-900 font-medium"><div className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div> Sleep quality or duration logs</li>
+                  <li className="flex items-center gap-2 bg-emerald-50 p-2 rounded text-sm text-emerald-900 font-medium"><div className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div> Training intensity or activity logs</li>
+                  <li className="flex items-center gap-2 bg-emerald-50 p-2 rounded text-sm text-emerald-900 font-medium"><div className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div> App preferences and settings</li>
+                  <li className="flex items-center gap-2 bg-emerald-50 p-2 rounded text-sm text-emerald-900 font-medium"><div className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div> Feedback or support messages</li>
+                </ul>
+                <p className="text-sm italic text-slate-500 border-t border-slate-100 pt-3">All inputs are self-reported and subjective.</p>
+              </div>
+
+              <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+                <h3 className="text-lg font-bold text-slate-800 mb-3">2.2 Automatically Collected Information</h3>
+                <p className="mb-4 text-sm">To maintain app quality and performance, Recova may collect:</p>
+                <ul className="list-disc ml-5 space-y-2 text-sm">
+                  <li>Device type and operating system version</li>
+                  <li>App version and build number</li>
+                  <li>Anonymous crash logs and performance diagnostics</li>
+                  <li>Basic usage events (e.g., screen opens, feature usage)</li>
+                </ul>
+                <p className="mt-4 text-sm font-medium">This information does not identify you personally.</p>
+              </div>
+
+              <div className="bg-red-50 border border-red-100 rounded-2xl p-6">
+                <h3 className="text-lg font-bold text-red-900 mb-3">2.3 Information We Do NOT Collect</h3>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-red-800">
+                  <li className="flex items-center gap-2"><span className="font-bold">×</span> Heart rate data</li>
+                  <li className="flex items-center gap-2"><span className="font-bold">×</span> Medical records</li>
+                  <li className="flex items-center gap-2"><span className="font-bold">×</span> GPS location</li>
+                  <li className="flex items-center gap-2"><span className="font-bold">×</span> Biometric identifiers</li>
+                  <li className="flex items-center gap-2"><span className="font-bold">×</span> Financial information</li>
+                </ul>
+                <p className="mt-4 text-sm font-bold text-red-900">Recova does not connect to wearable devices.</p>
               </div>
             </div>
-            <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
-              <h4 className="text-lg font-bold text-slate-800 mb-3">b) App Usage Data</h4>
-              <ul className="list-disc ml-6 space-y-1">
-                <li>Feature interactions</li>
-                <li>App navigation events</li>
-                <li>Crash and performance data</li>
-              </ul>
+          </Section>
+
+          <Section id="usage" title="3. How We Use Your Information">
+            <p>Your information is used solely to:</p>
+            <ul className="list-disc ml-6 space-y-2 marker:text-emerald-500">
+              <li>Generate recovery insights based on your inputs</li>
+              <li>Improve app stability and usability</li>
+              <li>Detect bugs, crashes, or performance issues</li>
+              <li>Respond to support requests</li>
+            </ul>
+            <p className="mt-4 font-medium">Recova does not use your data for advertising or profiling.</p>
+          </Section>
+
+          <Section id="processing" title="4. Data Processing & Recovery Insights">
+            <p>Recova processes your logs locally or securely to:</p>
+            <ul className="list-disc ml-6 space-y-2">
+              <li>Identify trends in perceived recovery</li>
+              <li>Provide awareness-based guidance</li>
+              <li>Maintain historical statistics</li>
+            </ul>
+            <p className="mt-4 p-4 bg-blue-50 text-blue-800 rounded-xl border border-blue-100 text-sm font-semibold">
+              Recovery scores are informational reflections, not physiological measurements.
+            </p>
+          </Section>
+
+          <Section id="security" title="5. Data Storage & Security">
+            <p>We apply reasonable technical and organizational measures to protect your data, including:</p>
+            <ul className="list-disc ml-6 space-y-2">
+              <li>Secure storage practices</li>
+              <li>Limited internal access</li>
+              <li>Industry-standard safeguards</li>
+            </ul>
+            <p className="mt-4 text-slate-500 italic">However, no digital system can guarantee absolute security.</p>
+          </Section>
+
+          <Section id="sharing" title="6. Data Sharing & Third Parties">
+            <p className="font-medium mb-4">Recova does not sell, rent, or trade your personal data.</p>
+            <p className="mb-2">We may share limited data only with:</p>
+            <ul className="list-disc ml-6 space-y-2 mb-4">
+              <li>Analytics or crash-reporting services</li>
+              <li>Hosting or infrastructure providers</li>
+              <li>Authorities if required by law</li>
+            </ul>
+            <p>All partners are expected to comply with applicable privacy standards.</p>
+          </Section>
+
+          <Section id="rights" title="7. User Rights & Control">
+            <p className="mb-4">You have the right to:</p>
+            <ul className="list-disc ml-6 space-y-2 mb-6">
+              <li>Edit or delete logged data</li>
+              <li>Stop using the app at any time</li>
+              <li>Request deletion of stored data</li>
+            </ul>
+            <div className="bg-slate-100 p-4 rounded-xl inline-block">
+              <p className="text-sm font-medium mb-1">To request deletion or assistance, contact:</p>
+              <a href={`mailto:${CONTACT_EMAIL}`} className="text-emerald-600 font-bold hover:underline">{CONTACT_EMAIL}</a>
             </div>
           </Section>
 
-          <Section id="usage" title="2. How We Use Your Data">
-            <p>Your data is used to:</p>
-            <ul className="space-y-3 list-disc ml-6 marker:text-emerald-500">
-              <li>Generate recovery scores and readiness insights</li>
-              <li>Personalize recovery recommendations</li>
-              <li>Improve app performance and features</li>
-              <li>Send notifications (if enabled)</li>
-            </ul>
-          </Section>
-
-          <Section id="medical" title="3. Fitness Data Is Not Medical Data">
-            <p className="p-5 bg-blue-50 text-blue-800 rounded-2xl border border-blue-100 font-medium">
-              All recovery metrics, readiness scores, and CNS balance indicators are fitness-derived estimates, not medical or neurological health records.
-            </p>
-            <p className="mt-4">Recova does not collect clinical, diagnostic, or medical health data.</p>
-          </Section>
-
-          <Section id="accuracy" title="4. Data Accuracy Disclaimer">
-            <p>Recovery insights depend on user-reported information. Recova does not guarantee accuracy or completeness of generated insights.</p>
-          </Section>
-
-          <Section id="storage" title="5. Data Storage & Security">
-            <p>We implement reasonable security measures to protect user data. However, no system can guarantee complete security.</p>
-          </Section>
-
-          <Section id="sharing" title="6. Data Sharing">
-            <p>Recova:</p>
-            <ul className="list-disc ml-6 space-y-2 marker:text-emerald-500">
-              <li>Does not sell personal data</li>
-              <li>Does not share identifiable fitness data with advertisers</li>
-              <li>May use anonymized analytics for performance improvements</li>
-            </ul>
-          </Section>
-
-          <Section id="ads" title="7. Advertisements & Analytics">
-            <p>Third-party services may be used for:</p>
-            <ul className="list-disc ml-6 space-y-2 mb-4">
-              <li>Analytics</li>
-              <li>Advertising</li>
-            </ul>
-            <p className="bg-slate-50 p-4 rounded-xl text-sm border-l-4 border-slate-300 italic">
-              These services do not receive access to personally identifiable health or fitness data.
-            </p>
-          </Section>
-
-          <Section id="notifications" title="8. Notifications">
-            <p>You may receive notifications related to:</p>
+          <Section id="retention" title="8. Data Retention">
+            <p>We retain user data only as long as necessary to:</p>
             <ul className="list-disc ml-6 space-y-2">
-              <li>Logging reminders</li>
-              <li>App updates</li>
+              <li>Provide app functionality</li>
+              <li>Improve service quality</li>
+              <li>Meet legal obligations (if applicable)</li>
             </ul>
-            <p className="mt-4">You can disable notifications at any time through your device settings.</p>
           </Section>
 
-          <Section id="retention" title="9. Data Retention">
-            <p>We retain user data only as long as necessary to provide App functionality or until the user deletes their account.</p>
+          <Section id="children" title="9. Children’s Privacy">
+            <p className="mb-2">Recova is not intended for children under 13.</p>
+            <p>We do not knowingly collect information from minors.</p>
           </Section>
 
-          <Section id="deletion" title="10. Account Deletion">
-            <p>Users can request account deletion through the App. Upon deletion, associated data will be removed as required by applicable laws.</p>
+          <Section id="updates" title="10. Policy Updates">
+            <p>This Privacy Policy may be updated from time to time. Updates will be reflected on this page.</p>
+            <p className="mt-4">Continued use of the app indicates acceptance of changes.</p>
           </Section>
 
-          <Section id="children" title="11. Children's Privacy">
-            <p>Recova is not intended for users under the age of 13. We do not knowingly collect data from children.</p>
-          </Section>
-
-          <Section id="changes" title="12. Changes to This Policy">
-            <p>We may update this Privacy Policy periodically. Continued use of the App constitutes acceptance of changes.</p>
-          </Section>
-
-          <Section id="contact" title="13. Contact">
-            <p className="mb-6 leading-relaxed">For questions or concerns, contact us at:</p>
-            <div className="flex flex-col items-start gap-4">
-              <a href={`mailto:${CONTACT_EMAIL}`} className="group flex items-center gap-4 bg-slate-900 text-white px-6 py-4 rounded-2xl hover:bg-emerald-600 transition-all duration-300">
-                <div className="font-bold border-r border-white/20 pr-4">Email Us</div>
-                <div className="font-medium text-emerald-400 group-hover:text-white transition-colors">{CONTACT_EMAIL}</div>
+          <Section id="contact" title="11. Contact Information">
+            <div className="bg-slate-900 text-white p-8 rounded-3xl shadow-xl">
+              <p className="font-bold mb-2 uppercase text-xs tracking-widest opacity-70">For privacy-related questions</p>
+              <a href={`mailto:${CONTACT_EMAIL}`} className="text-2xl font-bold hover:text-emerald-400 transition-colors underline decoration-emerald-500 underline-offset-4">
+                {CONTACT_EMAIL}
               </a>
             </div>
           </Section>
