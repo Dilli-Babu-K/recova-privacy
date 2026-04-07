@@ -14,7 +14,6 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
             <span className="text-xl font-bold tracking-tight text-slate-900">{APP_NAME}</span>
           </div>
           <div className="flex items-center gap-6">
-            <a href="https://dilli-babu-k.github.io/terms-/" className="text-sm font-semibold text-slate-600 hover:text-emerald-600 transition-colors">Terms & Conditions</a>
           </div>
         </div>
       </header>
