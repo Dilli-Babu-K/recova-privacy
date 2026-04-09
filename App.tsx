@@ -49,8 +49,9 @@ const App: React.FC = () => {
               { id: 'usage', title: '4. Usage' },
               { id: 'security', title: '5. Storage & Security' },
               { id: 'retention', title: '6. Deletion & Retention' },
-              { id: 'rights', title: '7. Your Rights' },
-              { id: 'contact', title: '8. Contact' },
+              { id: 'children', title: '7. Children’s Privacy' },
+              { id: 'rights', title: '8. Your Rights' },
+              { id: 'contact', title: '9. Contact' },
             ].map((link) => (
               <a 
                 key={link.id} 
@@ -149,7 +150,11 @@ const App: React.FC = () => {
             </ul>
           </Section>
 
-          <Section id="rights" title="7. Your Rights (EEA & California)">
+          <Section id="children" title="7. Children’s Privacy">
+            <p><strong>RECOVA is strictly intended for users aged 18 and older.</strong> We do not knowingly collect information from anyone under 18.</p>
+          </Section>
+
+          <Section id="rights" title="8. Your Rights (EEA & California)">
             <p className="mb-4">You have the right to:</p>
             <ul className="list-disc ml-6 space-y-2 mb-6">
               <li><strong>Access:</strong> Request a copy of your data.</li>
@@ -163,7 +168,7 @@ const App: React.FC = () => {
             </div>
           </Section>
 
-          <Section id="contact" title="8. Contact Information">
+          <Section id="contact" title="9. Contact Information">
             <div className="bg-slate-900 text-white p-8 rounded-3xl shadow-xl">
               <p className="font-bold mb-2 uppercase text-xs tracking-widest opacity-70">For privacy-related questions or data requests</p>
               <a href={`mailto:${CONTACT_EMAIL}`} className="text-2xl font-bold hover:text-emerald-400 transition-colors underline decoration-emerald-500 underline-offset-4 block mb-4">
