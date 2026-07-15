@@ -43,15 +43,13 @@ const App: React.FC = () => {
             <h3 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-6">Sections</h3>
             {[
               { id: 'intro', title: 'Introduction' },
-              { id: 'overview', title: '1. Overview' },
-              { id: 'collect', title: '2. Info We Collect' },
-              { id: 'legal', title: '3. Legal Basis (GDPR)' },
-              { id: 'usage', title: '4. Usage' },
-              { id: 'security', title: '5. Storage & Security' },
-              { id: 'retention', title: '6. Deletion & Retention' },
-              { id: 'children', title: '7. Children’s Privacy' },
-              { id: 'rights', title: '8. Your Rights' },
-              { id: 'contact', title: '9. Contact' },
+              { id: 'collect', title: '1. Info We Collect' },
+              { id: 'usage', title: '2. How We Use Info' },
+              { id: 'security', title: '3. Storage & Security' },
+              { id: 'permissions', title: '4. Permissions & Opt-Out' },
+              { id: 'deletion', title: '5. Account Deletion' },
+              { id: 'changes', title: '6. Policy Changes' },
+              { id: 'contact', title: '7. Contact Us' },
             ].map((link) => (
               <a 
                 key={link.id} 
@@ -68,113 +66,99 @@ const App: React.FC = () => {
         <article className="flex-grow max-w-3xl">
           <div id="intro" className="prose prose-slate lg:prose-lg max-w-none mb-12 scroll-mt-24">
             <p className="text-xl text-slate-800 font-medium leading-relaxed border-l-4 border-emerald-500 pl-6 py-2 bg-emerald-50/30 rounded-r-xl">
-              At RECOVA, we are committed to protecting your recovery data and respecting your privacy. This Privacy Policy explains how we collect, use, and protect your information across our mobile application and services.
+              Recova ("we", "us", or "our") is committed to protecting the privacy and security of your personal, training, and sleep-related data. This Privacy Policy describes how we collect, store, process, and protect your information when you use our mobile application ("Recova" or "App").
+            </p>
+            <p className="mt-4 text-slate-600">
+              By creating an account or using the App, you agree to the collection and use of information in accordance with this Privacy Policy.
             </p>
           </div>
 
-          <Section id="overview" title="1. Overview">
-            <p>Recova is a recovery-focused fitness awareness app. It relies primarily on user-reported inputs to provide perceived recovery insights.</p>
-            <p className="font-medium text-emerald-700">We intentionally limit data collection to what is strictly necessary to operate the app.</p>
-          </Section>
-
-          <Section id="collect" title="2. Information We Collect">
+          <Section id="collect" title="1. Information We Collect">
+            <p className="mb-6">To calculate your daily recovery scores and provide wellness recommendations, we collect the following categories of information:</p>
+            
             <div className="space-y-8">
               <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
-                <h3 className="text-lg font-bold text-slate-800 mb-3">2.1 Information You Provide Directly</h3>
-                <p className="mb-4 text-sm">When using Recova, you voluntarily provide:</p>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
-                  <li className="flex items-start gap-2 bg-emerald-50 p-3 rounded text-sm text-emerald-900"><div className="w-1.5 h-1.5 bg-emerald-500 rounded-full mt-1.5 flex-shrink-0"></div> <div><strong>Profile Data:</strong> Age, gender, height, weight, and training experience level.</div></li>
-                  <li className="flex items-start gap-2 bg-emerald-50 p-3 rounded text-sm text-emerald-900"><div className="w-1.5 h-1.5 bg-emerald-500 rounded-full mt-1.5 flex-shrink-0"></div> <div><strong>Log Data:</strong> Sleep quality/duration logs and training intensity/activity logs.</div></li>
-                  <li className="flex items-start gap-2 bg-emerald-50 p-3 rounded text-sm text-emerald-900"><div className="w-1.5 h-1.5 bg-emerald-500 rounded-full mt-1.5 flex-shrink-0"></div> <div><strong>Preferences:</strong> App settings and notification preferences.</div></li>
-                  <li className="flex items-start gap-2 bg-emerald-50 p-3 rounded text-sm text-emerald-900"><div className="w-1.5 h-1.5 bg-emerald-500 rounded-full mt-1.5 flex-shrink-0"></div> <div><strong>Communication:</strong> Feedback or support messages sent to our team.</div></li>
+                <h3 className="text-lg font-bold text-slate-800 mb-3">A. Account Information</h3>
+                <ul className="list-disc ml-5 space-y-2 text-sm text-slate-600">
+                  <li><strong>Google Profile Data:</strong> When you sign in using Google, we collect your name, email address, profile picture URL, and a unique User ID (UID) via Google Firebase Authentication. This is required to create your profile and keep your data secure.</li>
                 </ul>
               </div>
 
               <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
-                <h3 className="text-lg font-bold text-slate-800 mb-3">2.2 Automatically Collected Information</h3>
-                <p className="mb-4 text-sm">To maintain app quality, we use <strong>Google Firebase</strong> to collect:</p>
-                <ul className="list-disc ml-5 space-y-2 text-sm">
-                  <li><strong>Device Information:</strong> Model, OS version, and unique device identifiers.</li>
-                  <li><strong>Usage Analytics:</strong> Screen opens and feature interactions (anonymized).</li>
-                  <li><strong>Diagnostics:</strong> Crash logs and performance metrics to identify bugs.</li>
+                <h3 className="text-lg font-bold text-slate-800 mb-3">B. User-Logged Data (Manual Logs)</h3>
+                <ul className="list-disc ml-5 space-y-2 text-sm text-slate-600">
+                  <li><strong>Subjective Sleep Quality:</strong> Ratings of your sleep quality (e.g., "Poor", "Okay", "Good").</li>
+                  <li><strong>Training & Workload Session Logs:</strong> Data regarding training type, duration, and subjective intensity level (e.g., "Hard", "Moderate", "Light").</li>
+                  <li><strong>Completed Recovery Actions:</strong> Wellness habits or checklists completed daily.</li>
                 </ul>
               </div>
 
-              <div className="bg-red-50 border border-red-100 rounded-2xl p-6">
-                <h3 className="text-lg font-bold text-red-900 mb-3">2.3 Information We Do NOT Collect</h3>
-                <p className="mb-4 text-sm text-red-800">We do NOT access or collect:</p>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-red-800">
-                  <li className="flex items-center gap-2"><span className="font-bold">×</span> GPS location or movement tracking.</li>
-                  <li className="flex items-center gap-2"><span className="font-bold">×</span> Heart rate or physiological biometric data from wearables.</li>
-                  <li className="flex items-center gap-2"><span className="font-bold">×</span> Health records or medical history.</li>
-                  <li className="flex items-center gap-2"><span className="font-bold">×</span> Financial or payment information.</li>
+              <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+                <h3 className="text-lg font-bold text-slate-800 mb-3">C. Physical Activity & Sleep Duration Data</h3>
+                <ul className="list-disc ml-5 space-y-2 text-sm text-slate-600">
+                  <li><strong>Motion & Sleep Sensor Data:</strong> If you grant the physical activity permission, the App accesses local, on-device motion sensors and Android's Google Play Services Sleep API.</li>
+                  <li><strong>Synced Timestamps:</strong> Automated estimates of your bedtime, waketime, and calculated total sleep duration.</li>
+                  <li><strong>Manual Adjustments:</strong> Any manual adjustments or corrections you make to your bedtimes and waketimes.</li>
+                </ul>
+              </div>
+
+              <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+                <h3 className="text-lg font-bold text-slate-800 mb-3">D. Technical & Device Information</h3>
+                <ul className="list-disc ml-5 space-y-2 text-sm text-slate-600">
+                  <li><strong>Device Metadata:</strong> Local time zones, platform type (iOS or Android), and app crash diagnostics.</li>
                 </ul>
               </div>
             </div>
           </Section>
 
-          <Section id="legal" title="3. Legal Basis for Processing (GDPR)">
-            <p>For users in the European Economic Area (EEA), we process your data based on:</p>
+          <Section id="usage" title="2. How We Use Your Information">
+            <p>We process your data strictly to run the App's core services and calculate your morning recovery scores:</p>
             <ul className="list-disc ml-6 space-y-2">
-              <li><strong>Consent:</strong> Your explicit agreement during onboarding.</li>
-              <li><strong>Performance of a Contract:</strong> To provide the recovery insights you requested.</li>
-              <li><strong>Legitimate Interests:</strong> To improve app stability and security.</li>
+              <li>To calculate daily Recovery Scores using our baseline algorithms.</li>
+              <li>To synchronize your historical graphs and stats securely across your devices.</li>
+              <li>To calibrate and generate automatic sleep duration predictions.</li>
+              <li>To personalize wellness and physical therapy checklists.</li>
             </ul>
-          </Section>
-
-          <Section id="usage" title="4. How We Use Your Information">
-            <p>Your information is used solely to:</p>
-            <ul className="list-disc ml-6 space-y-2 marker:text-emerald-500">
-              <li>Generate perceived recovery insights.</li>
-              <li>Provide awareness-based guidance.</li>
-              <li>Detect and fix software crashes.</li>
-              <li>Respond to your support requests.</li>
-            </ul>
-            <p className="mt-4 font-medium italic text-slate-500">Recova does not use your data for advertising or profiling.</p>
-          </Section>
-
-          <Section id="security" title="5. Data Storage & Security">
-            <p>We use <strong>Google Firebase</strong> (ISO 27001 certified) for data storage. We apply industry-standard safeguards including:</p>
-            <ul className="list-disc ml-6 space-y-2">
-              <li><strong>Encryption:</strong> Data is encrypted in transit and at rest.</li>
-              <li><strong>Access Control:</strong> Limited internal access to user data.</li>
-            </ul>
-            <p className="mt-4 text-slate-500 italic">However, please note that no digital system is 100% secure.</p>
-          </Section>
-
-          <Section id="retention" title="6. Data Deletion & Retention">
-            <p className="mb-4">We retain your data only as long as your account is active.</p>
-            <ul className="list-disc ml-6 space-y-4">
-              <li><strong>Account Deletion:</strong> You can delete your account via <strong>More &gt; Privacy &gt; Delete Account</strong>. This immediately triggers the permanent deletion of your profile and history from our servers.</li>
-              <li><strong>Inactivity:</strong> We may delete accounts that have been inactive for more than 2 years.</li>
-            </ul>
-          </Section>
-
-          <Section id="children" title="7. Children’s Privacy">
-            <p><strong>RECOVA is strictly intended for users aged 18 and older.</strong> We do not knowingly collect information from anyone under 18.</p>
-          </Section>
-
-          <Section id="rights" title="8. Your Rights (EEA & California)">
-            <p className="mb-4">You have the right to:</p>
-            <ul className="list-disc ml-6 space-y-2 mb-6">
-              <li><strong>Access:</strong> Request a copy of your data.</li>
-              <li><strong>Correction:</strong> Edit your profile or logs at any time.</li>
-              <li><strong>Erasure:</strong> Request that we delete all your data.</li>
-              <li><strong>Portability:</strong> Request your data in a structured format.</li>
-            </ul>
-            <div className="bg-slate-100 p-4 rounded-xl inline-block">
-              <p className="text-sm font-medium mb-1">To exercise these rights, contact us at:</p>
-              <a href={`mailto:${CONTACT_EMAIL}`} className="text-emerald-600 font-bold hover:underline">{CONTACT_EMAIL}</a>
+            <div className="mt-6 p-4 bg-emerald-50 text-emerald-900 rounded-xl border border-emerald-100 text-sm">
+              <p className="font-bold">Health & Activity Data Protection Guarantee:</p>
+              <p className="mt-1 text-emerald-800">We do not sell, rent, or lease your physical activity or sleep data to any third-party advertising networks, data brokers, or marketing platforms. All sensor data is processed locally and is used exclusively to calculate your personalized scores.</p>
             </div>
           </Section>
 
-          <Section id="contact" title="9. Contact Information">
+          <Section id="security" title="3. Data Storage & Security">
+            <ul className="list-disc ml-6 space-y-2">
+              <li><strong>Cloud Storage:</strong> Your logs are securely stored in Google Firebase Firestore databases.</li>
+              <li><strong>Security Protocols:</strong> We implement strict Firebase Security Rules that ensure only you, through your authenticated Google account, can access your personal user path.</li>
+              <li><strong>Local Caching:</strong> Certain data is cached temporarily on your device to enable offline usability.</li>
+            </ul>
+          </Section>
+
+          <Section id="permissions" title="4. Permissions, Control, & Opt-Out">
+            <p className="mb-4">You are in complete control of the device permissions you share with Recova:</p>
+            <ul className="list-disc ml-6 space-y-2">
+              <li><strong>Physical Activity & Sleep Sync:</strong> You can toggle or revoke sensor permissions at any time via the "Devices & Sync" menu under App Settings, or directly through your device's system settings.</li>
+              <li><strong>Notifications & Alarms:</strong> You can disable reminders at any time in system notification settings.</li>
+            </ul>
+          </Section>
+
+          <Section id="deletion" title="5. Permanent Account & Data Deletion">
+            <p className="mb-4">You have the right to erase all your personal data at any time.</p>
+            <ul className="list-disc ml-6 space-y-2">
+              <li><strong>How to Delete:</strong> Navigate to <code className="bg-slate-100 px-1.5 py-0.5 rounded text-sm font-semibold">More &gt; Privacy &amp; Data &gt; Delete Account</code> and follow the security verification steps.</li>
+              <li><strong>Immediate Purge:</strong> Once verified, your Firebase Authentication profile, along with your entire Firestore recovery history, logs, and metrics, is permanently and irreversibly deleted from our servers.</li>
+            </ul>
+          </Section>
+
+          <Section id="changes" title="6. Changes to this Policy">
+            <p>We may update this Privacy Policy from time to time to reflect changes in our services or legal obligations. We will notify you of any changes by updating the "Last Updated" date at the top of this page.</p>
+          </Section>
+
+          <Section id="contact" title="7. Contact Us">
             <div className="bg-slate-900 text-white p-8 rounded-3xl shadow-xl">
-              <p className="font-bold mb-2 uppercase text-xs tracking-widest opacity-70">For privacy-related questions or data requests</p>
-              <a href={`mailto:${CONTACT_EMAIL}`} className="text-2xl font-bold hover:text-emerald-400 transition-colors underline decoration-emerald-500 underline-offset-4 block mb-4">
+              <p className="font-bold mb-2 uppercase text-xs tracking-widest opacity-70">If you have any questions or concerns regarding your privacy or data rights:</p>
+              <a href={`mailto:${CONTACT_EMAIL}`} className="text-2xl font-bold hover:text-emerald-400 transition-colors underline decoration-emerald-500 underline-offset-4 block">
                 {CONTACT_EMAIL}
               </a>
-              <p className="text-slate-400 font-medium">Developer: RECOVA Team</p>
             </div>
           </Section>
         </article>

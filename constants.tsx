@@ -1,8 +1,8 @@
 import React from 'react';
 
 export const APP_NAME = "RECOVA";
-// Updated to specific date requested: April 9, 2026
-export const LAST_UPDATED = "April 9, 2026";
+// Updated to specific date requested: July 15, 2026
+export const LAST_UPDATED = "July 15, 2026";
 export const CONTACT_EMAIL = "recova.app0@gmail.com";
 
 export const Icons = {
