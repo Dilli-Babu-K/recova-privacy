@@ -44,7 +44,7 @@
                 At RECOVA, we are committed to protecting your recovery data and respecting your privacy.
             </p>
             <div class="inline-flex items-center justify-center gap-2 text-sm text-slate-500 bg-white/5 px-4 py-2 rounded-full border border-white/10">
-                Last updated: <span id="last-updated-date" class="text-slate-300 font-medium">July 15, 2026</span>
+                Last updated: <span id="last-updated-date" class="text-slate-300 font-medium">July 22, 2026</span>
             </div>
         </div>
     </div>
@@ -96,21 +96,30 @@
                         <ul class="list-disc ml-5 space-y-2 text-sm text-slate-600">
                             <li><strong>Subjective Sleep Quality:</strong> Ratings of your sleep quality (e.g., "Poor", "Okay", "Good").</li>
                             <li><strong>Training & Workload Session Logs:</strong> Data regarding training type, duration, and subjective intensity level (e.g., "Hard", "Moderate", "Light").</li>
-                            <li><strong>Completed Recovery Actions:</strong> Wellness habits or checklists completed daily.</li>
+                            <li><strong>Completed Recovery Actions:</strong> Wellness habits or physical therapy checklists completed daily.</li>
                         </ul>
                     </div>
 
                     <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
                         <h3 class="text-lg font-bold text-slate-800 mb-3">C. Physical Activity & Sleep Duration Data</h3>
                         <ul class="list-disc ml-5 space-y-2 text-sm text-slate-600">
-                            <li><strong>Motion & Sleep Sensor Data:</strong> If you grant the physical activity permission, the App accesses local, on-device motion sensors and Android's Google Play Services Sleep API.</li>
+                            <li><strong>Motion & Sleep Sensor Data:</strong> If you grant physical activity permission, the App accesses local, on-device motion sensors and Android's Google Play Services Sleep API.</li>
                             <li><strong>Synced Timestamps:</strong> Automated estimates of your bedtime, waketime, and calculated total sleep duration.</li>
                             <li><strong>Manual Adjustments:</strong> Any manual adjustments or corrections you make to your bedtimes and waketimes.</li>
                         </ul>
                     </div>
 
                     <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
-                        <h3 class="text-lg font-bold text-slate-800 mb-3">D. Technical & Device Information</h3>
+                        <h3 class="text-lg font-bold text-slate-800 mb-3">D. Usage Access & Device Activity Data (PACKAGE_USAGE_STATS)</h3>
+                        <ul class="list-disc ml-5 space-y-2 text-sm text-slate-600">
+                            <li><strong>Screen Interaction Timestamps:</strong> If you grant Usage Access, the App reads local screen lock and unlock timestamps to refine automated bedtime and wakeup predictions.</li>
+                            <li><strong>Ephemeral On-Device Processing:</strong> Usage data is processed strictly in local device memory at the moment sleep predictions are evaluated and is immediately discarded.</li>
+                            <li><strong>No Content Tracking:</strong> Recova does NOT track your browsing history, messages, app content, or social media activity.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+                        <h3 class="text-lg font-bold text-slate-800 mb-3">E. Technical & Device Information</h3>
                         <ul class="list-disc ml-5 space-y-2 text-sm text-slate-600">
                             <li><strong>Device Metadata:</strong> Local time zones, platform type (iOS or Android), and app crash diagnostics.</li>
                         </ul>
@@ -130,7 +139,7 @@
                 </ul>
                 <div class="mt-6 p-4 bg-emerald-50 text-emerald-900 rounded-xl border border-emerald-100 text-sm">
                     <p class="font-bold">Health & Activity Data Protection Guarantee:</p>
-                    <p class="mt-1 text-emerald-800">We do not sell, rent, or lease your physical activity or sleep data to any third-party advertising networks, data brokers, or marketing platforms. All sensor data is processed locally and is used exclusively to calculate your personalized scores.</p>
+                    <p class="mt-1 text-emerald-800">We do not sell, rent, or lease your physical activity, usage stats, or sleep data to any third-party advertising networks, data brokers, or marketing platforms. All sensor and usage data is processed locally and is used exclusively to calculate your personalized recovery scores.</p>
                 </div>
             </section>
 
@@ -138,9 +147,10 @@
                 <h2 class="text-2xl font-bold text-slate-800 mb-2">3. Data Storage & Security</h2>
                 <div class="h-1.5 w-10 bg-emerald-600 mb-6 rounded-full"></div>
                 <ul class="list-disc ml-6 space-y-2 text-slate-600">
-                    <li><strong>Cloud Storage:</strong> Your logs are securely stored in Google Firebase Firestore databases.</li>
-                    <li><strong>Security Protocols:</strong> We implement strict Firebase Security Rules that ensure only you, through your authenticated Google account, can access your personal user path.</li>
+                    <li><strong>Cloud Storage:</strong> Your recovery logs are securely stored in Google Firebase Firestore databases.</li>
+                    <li><strong>Security Protocols:</strong> We implement strict Firebase Security Rules ensuring only you can access your data through your authenticated Google account.</li>
                     <li><strong>Local Caching:</strong> Certain data is cached temporarily on your device to enable offline usability.</li>
+                    <li><strong>Zero Raw Usage Storage:</strong> Raw device usage events are never sent to or stored on external servers.</li>
                 </ul>
             </section>
 
@@ -149,7 +159,8 @@
                 <div class="h-1.5 w-10 bg-emerald-600 mb-6 rounded-full"></div>
                 <p class="text-slate-600 mb-4">You are in complete control of the device permissions you share with Recova:</p>
                 <ul class="list-disc ml-6 space-y-2 text-slate-600">
-                    <li><strong>Physical Activity & Sleep Sync:</strong> You can toggle or revoke sensor permissions at any time via the "Devices & Sync" menu under App Settings, or directly through your device's system settings.</li>
+                    <li><strong>Physical Activity & Sleep Sync:</strong> You can toggle or revoke sensor permissions at any time via App Settings or your device's system settings.</li>
+                    <li><strong>Usage Access (Optional):</strong> You can choose whether to grant Usage Access during onboarding, or disable it anytime via Android System Settings &gt; Usage Access.</li>
                     <li><strong>Notifications & Alarms:</strong> You can disable reminders at any time in system notification settings.</li>
                 </ul>
             </section>
@@ -159,8 +170,8 @@
                 <div class="h-1.5 w-10 bg-emerald-600 mb-6 rounded-full"></div>
                 <p class="text-slate-600 mb-4">You have the right to erase all your personal data at any time.</p>
                 <ul class="list-disc ml-6 space-y-2 text-slate-600">
-                    <li><strong>How to Delete:</strong> Navigate to <code class="bg-slate-100 px-1.5 py-0.5 rounded text-sm font-semibold">More &gt; Privacy &amp; Data &gt; Delete Account</code> and follow the security verification steps.</li>
-                    <li><strong>Immediate Purge:</strong> Once verified, your Firebase Authentication profile, along with your entire Firestore recovery history, logs, and metrics, is permanently and irreversibly deleted from our servers.</li>
+                    <li><strong>How to Delete:</strong> Navigate to <code class="bg-slate-100 px-1.5 py-0.5 rounded text-sm font-semibold">More &gt; Privacy &amp; Data &gt; Delete Account</code> in the app and follow the security verification steps.</li>
+                    <li><strong>Immediate Purge:</strong> Once verified, your account profile and all Firestore logs, history, and metrics are permanently and irreversibly deleted from our servers.</li>
                 </ul>
             </section>
 
@@ -197,8 +208,8 @@
     </footer>
 
     <script>
-        // Set dynamic date to fixed value requested: July 15, 2026
-        document.getElementById('last-updated-date').textContent = "July 15, 2026";
+        // Set dynamic date to fixed value requested: July 22, 2026
+        document.getElementById('last-updated-date').textContent = "July 22, 2026";
         document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
 <script type="module" src="/index.tsx"></script>
