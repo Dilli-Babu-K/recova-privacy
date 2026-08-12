@@ -42,14 +42,15 @@ const App: React.FC = () => {
           <div className="sticky top-24 space-y-2">
             <h3 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-6">Sections</h3>
             {[
-              { id: 'intro', title: 'Introduction' },
-              { id: 'collect', title: '1. Info We Collect' },
-              { id: 'usage', title: '2. How We Use Info' },
-              { id: 'security', title: '3. Storage & Security' },
-              { id: 'permissions', title: '4. Permissions & Opt-Out' },
-              { id: 'deletion', title: '5. Account Deletion' },
-              { id: 'changes', title: '6. Policy Changes' },
-              { id: 'contact', title: '7. Contact Us' },
+              { id: 'intro', title: 'Introduction & Overview' },
+              { id: 'collect', title: '1. Information We Collect' },
+              { id: 'sharing', title: '2. Zero Commercial Data Sharing' },
+              { id: 'security', title: '3. Data Storage & Security' },
+              { id: 'deletion', title: '4. Account Deletion & Erasure' },
+              { id: 'permissions', title: '5. Permissions & Controls' },
+              { id: 'children', title: '6. Children’s Privacy' },
+              { id: 'changes', title: '7. Policy Changes' },
+              { id: 'contact', title: '8. Contact Us' },
             ].map((link) => (
               <a 
                 key={link.id} 
@@ -65,106 +66,118 @@ const App: React.FC = () => {
         {/* Policy Content */}
         <article className="flex-grow max-w-3xl">
           <div id="intro" className="prose prose-slate lg:prose-lg max-w-none mb-12 scroll-mt-24">
+            <h2 className="text-2xl font-bold text-slate-800 mb-2">Introduction & Overview</h2>
+            <div className="h-1.5 w-10 bg-emerald-600 mb-6 rounded-full"></div>
             <p className="text-xl text-slate-800 font-medium leading-relaxed border-l-4 border-emerald-500 pl-6 py-2 bg-emerald-50/30 rounded-r-xl">
-              Recova ("we", "us", or "our") is committed to protecting the privacy and security of your personal, training, and sleep-related data. This Privacy Policy describes how we collect, store, process, and protect your information when you use our mobile application ("Recova" or "App").
+              Recova ("we", "us", or "our") is committed to protecting the privacy, confidentiality, and security of your personal, training, and sleep recovery information. This Privacy Policy outlines how we collect, store, process, use, and delete your information when you use our Android mobile application ("Recova" or "App").
             </p>
             <p className="mt-4 text-slate-600">
-              By creating an account or using the App, you agree to the collection and use of information in accordance with this Privacy Policy.
+              By installing, registering, or using Recova, you consent to the data practices described in this Privacy Policy. If you do not agree with any part of this policy, please discontinue use of the App.
             </p>
           </div>
 
           <Section id="collect" title="1. Information We Collect">
-            <p className="mb-6">To calculate your daily recovery scores and provide wellness recommendations, we collect the following categories of information:</p>
-            
             <div className="space-y-8">
               <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
-                <h3 className="text-lg font-bold text-slate-800 mb-3">A. Account Information</h3>
+                <h3 className="text-lg font-bold text-slate-800 mb-3">A. Account & Profile Information (Firebase Authentication)</h3>
+                <p className="mb-2 text-sm text-slate-600">When you register or log in using Google Firebase Authentication, we collect:</p>
                 <ul className="list-disc ml-5 space-y-2 text-sm text-slate-600">
-                  <li><strong>Google Profile Data:</strong> When you sign in using Google, we collect your name, email address, profile picture URL, and a unique User ID (UID) via Google Firebase Authentication. This is required to create your profile and keep your data secure.</li>
+                  <li>Your full name and email address.</li>
+                  <li>Your Google profile picture URL.</li>
+                  <li>A unique Firebase User Identification string (UID).</li>
+                </ul>
+                <p className="mt-3 text-sm text-slate-700 bg-slate-50 p-3 rounded-lg border border-slate-100">
+                  <strong>Purpose:</strong> Strictly required to authenticate your identity, create your user profile, prevent unauthorized access, and synchronize your historical recovery logs across your devices.
+                </p>
+              </div>
+
+              <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+                <h3 className="text-lg font-bold text-slate-800 mb-3">B. User-Logged Fitness & Athletic Data</h3>
+                <p className="mb-2 text-sm text-slate-600">We store the data you manually input, select, or confirm within the App:</p>
+                <ul className="list-disc ml-5 space-y-2 text-sm text-slate-600">
+                  <li>Subjective sleep quality ratings ("Poor", "Okay", "Good").</li>
+                  <li>Training session logs (workout type, duration, and subjective intensity rating: "Hard", "Moderate", "Rest").</li>
+                  <li>Completed daily physical therapy checklists and recovery action items.</li>
+                </ul>
+                <p className="mt-3 text-sm text-slate-700 bg-slate-50 p-3 rounded-lg border border-slate-100">
+                  <strong>Purpose:</strong> Used to compute your daily Recovery Readiness Score (0-100%) and select relevant recovery protocols.
+                </p>
+              </div>
+
+              <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+                <h3 className="text-lg font-bold text-slate-800 mb-3">C. Physical Activity & On-Device Sensors (ACTIVITY_RECOGNITION)</h3>
+                <p className="mb-2 text-sm text-slate-600">If you grant physical activity permissions, Recova accesses your local device motion sensors and Android's Google Play Services Sleep API to detect bedtime and wake-up windows.</p>
+                <ul className="list-disc ml-5 space-y-3 text-sm text-slate-600 mt-4">
+                  <li><strong>On-Device Local Processing Guarantee:</strong> All raw sensor micro-epoch evaluations occur 100% locally on your device processor. Continuous raw motion and ambient light streams are NEVER transmitted to external servers, cloud databases, or third parties.</li>
+                  <li><strong>Saved Sleep Summary Logs:</strong> Once your sleep duration is calculated by our local algorithm or manually confirmed by you (bedtime, wake time, WASO, and net hours), the final summary log is saved in Google Firebase Firestore to render your personal historical recovery graphs and calculate your readiness score.</li>
                 </ul>
               </div>
 
               <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
-                <h3 className="text-lg font-bold text-slate-800 mb-3">B. User-Logged Data (Manual Logs)</h3>
+                <h3 className="text-lg font-bold text-slate-800 mb-3">D. Device & Technical Diagnostic Data</h3>
+                <p className="mb-2 text-sm text-slate-600">We collect minimal technical parameters necessary for application performance:</p>
                 <ul className="list-disc ml-5 space-y-2 text-sm text-slate-600">
-                  <li><strong>Subjective Sleep Quality:</strong> Ratings of your sleep quality (e.g., "Poor", "Okay", "Good").</li>
-                  <li><strong>Training & Workload Session Logs:</strong> Data regarding training type, duration, and subjective intensity level (e.g., "Hard", "Moderate", "Light").</li>
-                  <li><strong>Completed Recovery Actions:</strong> Wellness habits or physical therapy checklists completed daily.</li>
-                </ul>
-              </div>
-
-              <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
-                <h3 className="text-lg font-bold text-slate-800 mb-3">C. Physical Activity & Sleep Duration Data</h3>
-                <ul className="list-disc ml-5 space-y-2 text-sm text-slate-600">
-                  <li><strong>Motion & Sleep Sensor Data:</strong> If you grant physical activity permission, the App accesses local, on-device motion sensors and Android's Google Play Services Sleep API.</li>
-                  <li><strong>Synced Timestamps:</strong> Automated estimates of your bedtime, waketime, and calculated total sleep duration.</li>
-                  <li><strong>Manual Adjustments:</strong> Any manual adjustments or corrections you make to your bedtimes and waketimes.</li>
-                </ul>
-              </div>
-
-              <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
-                <h3 className="text-lg font-bold text-slate-800 mb-3">D. Usage Access & Device Activity Data (PACKAGE_USAGE_STATS)</h3>
-                <ul className="list-disc ml-5 space-y-2 text-sm text-slate-600">
-                  <li><strong>Screen Interaction Timestamps:</strong> If you grant Usage Access, the App reads local screen lock and unlock timestamps to refine automated bedtime and wakeup predictions.</li>
-                  <li><strong>Ephemeral On-Device Processing:</strong> Usage data is processed strictly in local device memory at the moment sleep predictions are evaluated and is immediately discarded.</li>
-                  <li><strong>No Content Tracking:</strong> Recova does NOT track your browsing history, messages, app content, or social media activity.</li>
-                </ul>
-              </div>
-
-              <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
-                <h3 className="text-lg font-bold text-slate-800 mb-3">E. Technical & Device Information</h3>
-                <ul className="list-disc ml-5 space-y-2 text-sm text-slate-600">
-                  <li><strong>Device Metadata:</strong> Local time zones, platform type (iOS or Android), and app crash diagnostics.</li>
+                  <li>Device operational metadata (Android OS version, app version, time zone settings).</li>
+                  <li>Local crash logs to resolve bugs and performance bottlenecks.</li>
                 </ul>
               </div>
             </div>
           </Section>
 
-          <Section id="usage" title="2. How We Use Your Information">
-            <p>We process your data strictly to run the App's core services and calculate your morning recovery scores:</p>
-            <ul className="list-disc ml-6 space-y-2">
-              <li>To calculate daily Recovery Scores using our baseline algorithms.</li>
-              <li>To synchronize your historical graphs and stats securely across your devices.</li>
-              <li>To calibrate and generate automatic sleep duration predictions.</li>
-              <li>To personalize wellness and physical therapy checklists.</li>
+          <Section id="sharing" title="2. Zero Commercial Data Sharing Guarantee">
+            <p className="mb-4"><strong>Google Play Store Data Safety Compliance:</strong> Recova does NOT sell, rent, lease, trade, license, or monetize your physical activity, sleep logs, or personal information to third-party advertising networks, data brokers, analytics platforms, or commercial partners.</p>
+            <p>We explicitly disable and remove Google Advertising ID (AD_ID) tracking (<code className="bg-slate-100 px-1.5 py-0.5 rounded text-sm text-slate-600">com.google.android.gms.permission.AD_ID</code>) from our software build. All data is processed exclusively to deliver your personal athletic recovery metrics.</p>
+          </Section>
+
+          <Section id="security" title="3. Data Storage, Encryption & Security">
+            <ul className="list-disc ml-6 space-y-3">
+              <li><strong>Cloud Infrastructure:</strong> Account profiles, streaks, and recovery logs are encrypted in transit (SSL/TLS) and at rest within Google Firebase Firestore databases.</li>
+              <li><strong>Access Control:</strong> Access is governed by strict Firebase Security Rules ensuring only your authenticated account UID can read or write your personal data.</li>
+              <li><strong>Local Storage:</strong> Ephemeral state flags (such as daily notification delivery status) are cached locally on your device in encrypted SharedPreferences.</li>
             </ul>
-            <div className="mt-6 p-4 bg-emerald-50 text-emerald-900 rounded-xl border border-emerald-100 text-sm">
-              <p className="font-bold">Health & Activity Data Protection Guarantee:</p>
-              <p className="mt-1 text-emerald-800">We do not sell, rent, or lease your physical activity, usage stats, or sleep data to any third-party advertising networks, data brokers, or marketing platforms. All sensor and usage data is processed locally and is used exclusively to calculate your personalized recovery scores.</p>
+          </Section>
+
+          <Section id="deletion" title="4. Account Deletion & Data Erasure Protocols">
+            <p className="mb-4">You maintain full ownership of your data and possess the absolute right to permanently delete your account and erase all associated records at any time:</p>
+            
+            <div className="space-y-6">
+              <div className="bg-slate-50 p-5 rounded-xl border border-slate-200">
+                <h4 className="font-bold text-slate-800 mb-2">Method 1: In-App Instant Account Deletion</h4>
+                <ol className="list-decimal ml-5 space-y-1 mb-3 text-sm text-slate-700">
+                  <li>Open the Recova App.</li>
+                  <li>Navigate to <strong>More &gt; Privacy &amp; Data &gt; Delete Account</strong>.</li>
+                  <li>Verify your identity via your Google Account authentication.</li>
+                </ol>
+                <p className="text-sm text-slate-600 italic">Your account profile, streaks, workout logs, and historical sleep records will be permanently and irreversibly purged from our Firestore cloud servers.</p>
+              </div>
+
+              <div className="bg-slate-50 p-5 rounded-xl border border-slate-200">
+                <h4 className="font-bold text-slate-800 mb-2">Method 2: Web / Email Account Deletion Request</h4>
+                <p className="text-sm text-slate-700">
+                  If you cannot access the mobile application, you can submit a deletion request by emailing <a href={`mailto:${CONTACT_EMAIL}`} className="text-emerald-600 font-medium hover:underline">{CONTACT_EMAIL}</a> with the subject line "Account Deletion Request" from your registered Google email address. Your account and all associated data records will be manually verified and permanently erased within 48 hours.
+                </p>
+              </div>
             </div>
           </Section>
 
-          <Section id="security" title="3. Data Storage & Security">
-            <ul className="list-disc ml-6 space-y-2">
-              <li><strong>Cloud Storage:</strong> Your recovery logs are securely stored in Google Firebase Firestore databases.</li>
-              <li><strong>Security Protocols:</strong> We implement strict Firebase Security Rules ensuring only you can access your data through your authenticated Google account.</li>
-              <li><strong>Local Caching:</strong> Certain data is cached temporarily on your device to enable offline usability.</li>
-              <li><strong>Zero Raw Usage Storage:</strong> Raw device usage events are never sent to or stored on external servers.</li>
+          <Section id="permissions" title="5. Permissions & User Controls">
+            <p className="mb-4">You can grant or revoke device permissions at any time:</p>
+            <ul className="list-disc ml-6 space-y-2 mb-4">
+              <li><strong>Physical Activity Permission:</strong> Control via Android Settings &gt; Apps &gt; Recova &gt; Permissions &gt; Physical Activity.</li>
+              <li><strong>Notifications & Alarms:</strong> Control via Android Settings &gt; Notifications &gt; Recova.</li>
             </ul>
+            <p className="text-sm text-slate-500 italic">Disabling permissions may deactivate automatic sleep duration estimation, but manual sleep confirmation will remain fully operational.</p>
           </Section>
 
-          <Section id="permissions" title="4. Permissions, Control, & Opt-Out">
-            <p className="mb-4">You are in complete control of the device permissions you share with Recova:</p>
-            <ul className="list-disc ml-6 space-y-2">
-              <li><strong>Physical Activity & Sleep Sync:</strong> You can toggle or revoke sensor permissions at any time via App Settings or your device's system settings.</li>
-              <li><strong>Usage Access (Optional):</strong> You can choose whether to grant Usage Access during onboarding, or disable it anytime via Android System Settings &gt; Usage Access.</li>
-              <li><strong>Notifications & Alarms:</strong> You can disable reminders at any time in system notification settings.</li>
-            </ul>
+          <Section id="children" title="6. Children’s Privacy (COPPA & GDPR Compliance)">
+            <p>Recova is designed for athletes and active individuals aged 13 and older (or 16 in the European Union). We do not knowingly collect or solicit personal information from children under 13. If we learn that we have collected personal data from a child under 13 without verified parental consent, we will delete that information immediately.</p>
           </Section>
 
-          <Section id="deletion" title="5. Permanent Account & Data Deletion">
-            <p className="mb-4">You have the right to erase all your personal data at any time.</p>
-            <ul className="list-disc ml-6 space-y-2">
-              <li><strong>How to Delete:</strong> Navigate to <code className="bg-slate-100 px-1.5 py-0.5 rounded text-sm font-semibold">More &gt; Privacy &amp; Data &gt; Delete Account</code> in the app and follow the security verification steps.</li>
-              <li><strong>Immediate Purge:</strong> Once verified, your account profile and all Firestore logs, history, and metrics are permanently and irreversibly deleted from our servers.</li>
-            </ul>
+          <Section id="changes" title="7. Changes to this Privacy Policy">
+            <p>We may update this Privacy Policy from time to time to reflect operational updates or regulatory standards. Material updates will be posted on this page with a revised "Last Updated" date.</p>
           </Section>
 
-          <Section id="changes" title="6. Changes to this Policy">
-            <p>We may update this Privacy Policy from time to time to reflect changes in our services or legal obligations. We will notify you of any changes by updating the "Last Updated" date at the top of this page.</p>
-          </Section>
-
-          <Section id="contact" title="7. Contact Us">
+          <Section id="contact" title="8. Contact Information">
             <div className="bg-slate-900 text-white p-8 rounded-3xl shadow-xl">
               <p className="font-bold mb-2 uppercase text-xs tracking-widest opacity-70">If you have any questions or concerns regarding your privacy or data rights:</p>
               <a href={`mailto:${CONTACT_EMAIL}`} className="text-2xl font-bold hover:text-emerald-400 transition-colors underline decoration-emerald-500 underline-offset-4 block">
