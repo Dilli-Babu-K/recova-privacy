@@ -1,6 +1,6 @@
 import React from 'react';
 import { Layout } from './components/Layout';
-import { Icons, APP_NAME, LAST_UPDATED, CONTACT_EMAIL } from './constants';
+import { Icons, APP_NAME, LAST_UPDATED, CONTACT_EMAIL, ENTITY_NAME } from './constants';
 
 const Section: React.FC<{ id: string; title: string; children: React.ReactNode }> = ({ id, title, children }) => (
   <section id={id} className="py-12 border-b border-slate-200 scroll-mt-20 last:border-0">
@@ -46,11 +46,11 @@ const App: React.FC = () => {
               { id: 'collect', title: '1. Information We Collect' },
               { id: 'sharing', title: '2. Zero Commercial Data Sharing' },
               { id: 'security', title: '3. Data Storage & Security' },
-              { id: 'deletion', title: '4. Account Deletion & Erasure' },
+              { id: 'deletion', title: '4. Account Deletion & Rights' },
               { id: 'permissions', title: '5. Permissions & Controls' },
               { id: 'children', title: '6. Children’s Privacy' },
               { id: 'changes', title: '7. Policy Changes' },
-              { id: 'contact', title: '8. Contact Us' },
+              { id: 'contact', title: '8. Contact Information' },
             ].map((link) => (
               <a 
                 key={link.id} 
@@ -66,10 +66,8 @@ const App: React.FC = () => {
         {/* Policy Content */}
         <article className="flex-grow max-w-3xl">
           <div id="intro" className="prose prose-slate lg:prose-lg max-w-none mb-12 scroll-mt-24">
-            <h2 className="text-2xl font-bold text-slate-800 mb-2">Introduction & Overview</h2>
-            <div className="h-1.5 w-10 bg-emerald-600 mb-6 rounded-full"></div>
             <p className="text-xl text-slate-800 font-medium leading-relaxed border-l-4 border-emerald-500 pl-6 py-2 bg-emerald-50/30 rounded-r-xl">
-              Recova ("we", "us", or "our") is committed to protecting the privacy, confidentiality, and security of your personal, training, and sleep recovery information. This Privacy Policy outlines how we collect, store, process, use, and delete your information when you use our Android mobile application ("Recova" or "App").
+              At <strong>RECOVA</strong>, we are committed to protecting the privacy, confidentiality, and security of your personal, training, and sleep recovery information. This Privacy Policy outlines how we collect, store, process, use, and delete your information when you use our Android mobile application ("Recova" or "App").
             </p>
             <p className="mt-4 text-slate-600">
               By installing, registering, or using Recova, you consent to the data practices described in this Privacy Policy. If you do not agree with any part of this policy, please discontinue use of the App.
@@ -100,15 +98,18 @@ const App: React.FC = () => {
                   <li>Completed daily physical therapy checklists and recovery action items.</li>
                 </ul>
                 <p className="mt-3 text-sm text-slate-700 bg-slate-50 p-3 rounded-lg border border-slate-100">
-                  <strong>Purpose:</strong> Used to compute your daily Recovery Readiness Score (0-100%) and select relevant recovery protocols.
+                  <strong>Purpose:</strong> Used to compute your daily Recovery Readiness Score (0–100%) and select relevant recovery protocols.
                 </p>
+                <div className="mt-3 p-3 bg-amber-50/80 rounded-lg border border-amber-200/70 text-xs text-amber-900">
+                  <strong>Non-Medical & Non-Biometric Scope:</strong> Recova collects only subjective athlete-reported ratings and non-clinical duration metrics. We do <strong>NOT</strong> collect, process, or monitor biological clinical markers, ECG, blood pressure, blood glucose, or medical diagnostic telemetry.
+                </div>
               </div>
 
               <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
                 <h3 className="text-lg font-bold text-slate-800 mb-3">C. Physical Activity & On-Device Sensors (ACTIVITY_RECOGNITION)</h3>
                 <p className="mb-2 text-sm text-slate-600">If you grant physical activity permissions, Recova accesses your local device motion sensors and Android's Google Play Services Sleep API to detect bedtime and wake-up windows.</p>
                 <ul className="list-disc ml-5 space-y-3 text-sm text-slate-600 mt-4">
-                  <li><strong>On-Device Local Processing Guarantee:</strong> All raw sensor micro-epoch evaluations occur 100% locally on your device processor. Continuous raw motion and ambient light streams are NEVER transmitted to external servers, cloud databases, or third parties.</li>
+                  <li><strong>On-Device Local Processing Guarantee:</strong> All raw sensor micro-epoch evaluations occur 100% locally on your device processor. Continuous raw motion and ambient light streams are <strong>NEVER</strong> transmitted to external servers, cloud databases, or third parties.</li>
                   <li><strong>Saved Sleep Summary Logs:</strong> Once your sleep duration is calculated by our local algorithm or manually confirmed by you (bedtime, wake time, WASO, and net hours), the final summary log is saved in Google Firebase Firestore to render your personal historical recovery graphs and calculate your readiness score.</li>
                 </ul>
               </div>
@@ -125,8 +126,8 @@ const App: React.FC = () => {
           </Section>
 
           <Section id="sharing" title="2. Zero Commercial Data Sharing Guarantee">
-            <p className="mb-4"><strong>Google Play Store Data Safety Compliance:</strong> Recova does NOT sell, rent, lease, trade, license, or monetize your physical activity, sleep logs, or personal information to third-party advertising networks, data brokers, analytics platforms, or commercial partners.</p>
-            <p>We explicitly disable and remove Google Advertising ID (AD_ID) tracking (<code className="bg-slate-100 px-1.5 py-0.5 rounded text-sm text-slate-600">com.google.android.gms.permission.AD_ID</code>) from our software build. All data is processed exclusively to deliver your personal athletic recovery metrics.</p>
+            <p className="mb-4"><strong>Google Play Store Data Safety Compliance:</strong> Recova does <strong>NOT</strong> sell, rent, lease, trade, license, or monetize your physical activity, sleep logs, or personal information to third-party advertising networks, data brokers, analytics platforms, or commercial partners.</p>
+            <p>We explicitly disable and remove Google Advertising ID (<code className="bg-slate-100 px-1.5 py-0.5 rounded text-sm text-slate-600">AD_ID</code>) tracking (<code className="bg-slate-100 px-1.5 py-0.5 rounded text-sm text-slate-600">com.google.android.gms.permission.AD_ID</code>) from our software build. All data is processed exclusively to deliver your personal athletic recovery metrics.</p>
           </Section>
 
           <Section id="security" title="3. Data Storage, Encryption & Security">
@@ -134,11 +135,12 @@ const App: React.FC = () => {
               <li><strong>Cloud Infrastructure:</strong> Account profiles, streaks, and recovery logs are encrypted in transit (SSL/TLS) and at rest within Google Firebase Firestore databases.</li>
               <li><strong>Access Control:</strong> Access is governed by strict Firebase Security Rules ensuring only your authenticated account UID can read or write your personal data.</li>
               <li><strong>Local Storage:</strong> Ephemeral state flags (such as daily notification delivery status) are cached locally on your device in encrypted SharedPreferences.</li>
+              <li><strong>Third-Party Infrastructure (Data Subprocessors):</strong> We rely on industry-standard cloud infrastructure to operate the service: <strong>Google Cloud / Firebase</strong> (Identity authentication, Firestore database, and Cloud Messaging). We do not use any secondary third-party advertising or commercial analytics SDKs.</li>
             </ul>
           </Section>
 
-          <Section id="deletion" title="4. Account Deletion & Data Erasure Protocols">
-            <p className="mb-4">You maintain full ownership of your data and possess the absolute right to permanently delete your account and erase all associated records at any time:</p>
+          <Section id="deletion" title="4. Account Deletion, Erasure & Legal Rights">
+            <p className="mb-4">You maintain full ownership of your data and possess the absolute right to access, rectify, or permanently erase all associated records at any time:</p>
             
             <div className="space-y-6">
               <div className="bg-slate-50 p-5 rounded-xl border border-slate-200">
@@ -154,8 +156,19 @@ const App: React.FC = () => {
               <div className="bg-slate-50 p-5 rounded-xl border border-slate-200">
                 <h4 className="font-bold text-slate-800 mb-2">Method 2: Web / Email Account Deletion Request</h4>
                 <p className="text-sm text-slate-700">
-                  If you cannot access the mobile application, you can submit a deletion request by emailing <a href={`mailto:${CONTACT_EMAIL}`} className="text-emerald-600 font-medium hover:underline">{CONTACT_EMAIL}</a> with the subject line "Account Deletion Request" from your registered Google email address. Your account and all associated data records will be manually verified and permanently erased within 48 hours.
+                  If you cannot access the mobile application, you can submit a deletion request by emailing <a href={`mailto:${CONTACT_EMAIL}`} className="text-emerald-600 font-medium hover:underline">{CONTACT_EMAIL}</a> with the subject line <em>"Account Deletion Request"</em> from your registered Google email address. Your account and all associated data records will be manually verified and permanently erased within <strong>48 hours</strong>.
                 </p>
+              </div>
+
+              <div className="bg-slate-50 p-5 rounded-xl border border-slate-200">
+                <h4 className="font-bold text-slate-800 mb-2">Your Global Legal Rights (GDPR, CCPA/CPRA & DPDP)</h4>
+                <p className="text-sm text-slate-600 mb-3">Depending on your jurisdiction, you possess the following statutory legal rights:</p>
+                <ul className="list-disc ml-5 space-y-2 text-sm text-slate-700">
+                  <li><strong>Access & Portability:</strong> Request a digital copy of your historical workout and recovery logs.</li>
+                  <li><strong>Rectification:</strong> Request corrections to inaccurate personal account data.</li>
+                  <li><strong>Erasure ("Right to be Forgotten"):</strong> Permanently delete all stored account and recovery data via in-app or email request.</li>
+                  <li><strong>Non-Discrimination:</strong> We will never degrade app performance, restrict features, or discriminate against you for exercising your privacy rights.</li>
+                </ul>
               </div>
             </div>
           </Section>
@@ -163,8 +176,8 @@ const App: React.FC = () => {
           <Section id="permissions" title="5. Permissions & User Controls">
             <p className="mb-4">You can grant or revoke device permissions at any time:</p>
             <ul className="list-disc ml-6 space-y-2 mb-4">
-              <li><strong>Physical Activity Permission:</strong> Control via Android Settings &gt; Apps &gt; Recova &gt; Permissions &gt; Physical Activity.</li>
-              <li><strong>Notifications & Alarms:</strong> Control via Android Settings &gt; Notifications &gt; Recova.</li>
+              <li><strong>Physical Activity Permission:</strong> Control via <em>Android Settings &gt; Apps &gt; Recova &gt; Permissions &gt; Physical Activity</em>.</li>
+              <li><strong>Notifications & Alarms:</strong> Control via <em>Android Settings &gt; Notifications &gt; Recova</em>.</li>
             </ul>
             <p className="text-sm text-slate-500 italic">Disabling permissions may deactivate automatic sleep duration estimation, but manual sleep confirmation will remain fully operational.</p>
           </Section>
@@ -178,11 +191,18 @@ const App: React.FC = () => {
           </Section>
 
           <Section id="contact" title="8. Contact Information">
-            <div className="bg-slate-900 text-white p-8 rounded-3xl shadow-xl">
-              <p className="font-bold mb-2 uppercase text-xs tracking-widest opacity-70">If you have any questions or concerns regarding your privacy or data rights:</p>
-              <a href={`mailto:${CONTACT_EMAIL}`} className="text-2xl font-bold hover:text-emerald-400 transition-colors underline decoration-emerald-500 underline-offset-4 block">
-                {CONTACT_EMAIL}
-              </a>
+            <div className="bg-slate-900 text-white p-8 rounded-3xl shadow-xl space-y-4">
+              <p className="font-bold uppercase text-xs tracking-widest opacity-70">If you have any questions or concerns regarding your privacy or data rights:</p>
+              <div>
+                <span className="text-xs uppercase text-slate-400 font-semibold block">Email</span>
+                <a href={`mailto:${CONTACT_EMAIL}`} className="text-2xl font-bold hover:text-emerald-400 transition-colors underline decoration-emerald-500 underline-offset-4 block mt-1">
+                  {CONTACT_EMAIL}
+                </a>
+              </div>
+              <div className="pt-2 border-t border-slate-800">
+                <span className="text-xs uppercase text-slate-400 font-semibold block">Entity</span>
+                <span className="text-slate-200 font-medium">{ENTITY_NAME}</span>
+              </div>
             </div>
           </Section>
         </article>
