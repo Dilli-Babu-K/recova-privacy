@@ -1,5 +1,6 @@
 {
   "name": "RECOVA Privacy Policy",
-  "description": "A modern, responsive, and interactive privacy policy website for the RECOVA mobile application, featuring an AI-powered policy assistant.",
-  "requestFramePermissions": []
+  "description": "Official Privacy Policy documentation and interactive policy assistant for the RECOVA mobile application.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

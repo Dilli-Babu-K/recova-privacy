@@ -44,7 +44,7 @@
                 At RECOVA, we are committed to protecting your recovery data and respecting your privacy.
             </p>
             <div class="inline-flex items-center justify-center gap-2 text-sm text-slate-500 bg-white/5 px-4 py-2 rounded-full border border-white/10">
-                Last updated: <span id="last-updated-date" class="text-slate-300 font-medium">August 17, 2026</span>
+                Last updated: <span id="last-updated-date" class="text-slate-300 font-medium">September 13, 2026</span>
             </div>
         </div>
     </div>
@@ -58,9 +58,9 @@
                 <h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-6">Contents</h3>
                 <a href="#intro" class="block py-2 text-slate-500 hover:text-emerald-600 transition-all font-medium border-l-2 border-transparent hover:border-emerald-600 pl-4 text-xs">Introduction & Overview</a>
                 <a href="#collect" class="block py-2 text-slate-500 hover:text-emerald-600 transition-all font-medium border-l-2 border-transparent hover:border-emerald-600 pl-4 text-xs">1. Information We Collect</a>
-                <a href="#sharing" class="block py-2 text-slate-500 hover:text-emerald-600 transition-all font-medium border-l-2 border-transparent hover:border-emerald-600 pl-4 text-xs">2. Zero Commercial Data Sharing</a>
+                <a href="#sharing" class="block py-2 text-slate-500 hover:text-emerald-600 transition-all font-medium border-l-2 border-transparent hover:border-emerald-600 pl-4 text-xs">2. No Sale or Advertising Use</a>
                 <a href="#security" class="block py-2 text-slate-500 hover:text-emerald-600 transition-all font-medium border-l-2 border-transparent hover:border-emerald-600 pl-4 text-xs">3. Data Storage & Security</a>
-                <a href="#deletion" class="block py-2 text-slate-500 hover:text-emerald-600 transition-all font-medium border-l-2 border-transparent hover:border-emerald-600 pl-4 text-xs">4. Account Deletion & Rights</a>
+                <a href="#deletion" class="block py-2 text-slate-500 hover:text-emerald-600 transition-all font-medium border-l-2 border-transparent hover:border-emerald-600 pl-4 text-xs">4. Account Deletion & Privacy Rights</a>
                 <a href="#permissions" class="block py-2 text-slate-500 hover:text-emerald-600 transition-all font-medium border-l-2 border-transparent hover:border-emerald-600 pl-4 text-xs">5. Permissions & Controls</a>
                 <a href="#children" class="block py-2 text-slate-500 hover:text-emerald-600 transition-all font-medium border-l-2 border-transparent hover:border-emerald-600 pl-4 text-xs">6. Children’s Privacy</a>
                 <a href="#changes" class="block py-2 text-slate-500 hover:text-emerald-600 transition-all font-medium border-l-2 border-transparent hover:border-emerald-600 pl-4 text-xs">7. Policy Changes</a>
@@ -75,7 +75,7 @@
                     At <strong>RECOVA</strong>, we are committed to protecting the privacy, confidentiality, and security of your personal, training, and sleep recovery information. This Privacy Policy outlines how we collect, store, process, use, and delete your information when you use our Android mobile application ("Recova" or "App").
                 </p>
                 <p class="mt-4 text-slate-600">
-                    By installing, registering, or using Recova, you consent to the data practices described in this Privacy Policy. If you do not agree with any part of this policy, please discontinue use of the App.
+                    By using Recova, you acknowledge that you have read this Privacy Policy and understand how your information is handled as described below. If you do not agree with any part of this policy, please discontinue use of the App.
                 </p>
             </div>
 
@@ -115,10 +115,10 @@
 
                     <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
                         <h3 class="text-lg font-bold text-slate-800 mb-3">C. Physical Activity & On-Device Sensors (ACTIVITY_RECOGNITION)</h3>
-                        <p class="mb-2 text-sm text-slate-600">If you grant physical activity permissions, Recova accesses your local device motion sensors and Android's Google Play Services Sleep API to detect bedtime and wake-up windows.</p>
+                        <p class="mb-2 text-sm text-slate-600">If you grant physical activity permission, Recova uses Android device activity and sensor data, together with Google Play services Sleep detection, to estimate sleep duration, including estimated bedtime and wake time.</p>
                         <ul class="list-disc ml-5 space-y-3 text-sm text-slate-600 mt-4">
-                            <li><strong>On-Device Local Processing Guarantee:</strong> All raw sensor micro-epoch evaluations occur 100% locally on your device processor. Continuous raw motion and ambient light streams are <strong>NEVER</strong> transmitted to external servers, cloud databases, or third parties.</li>
-                            <li><strong>Saved Sleep Summary Logs:</strong> Once your sleep duration is calculated by our local algorithm or manually confirmed by you (bedtime, wake time, WASO, and net hours), the final summary log is saved in Google Firebase Firestore to render your personal historical recovery graphs and calculate your readiness score.</li>
+                            <li><strong>On-Device Local Processing:</strong> Recova processes the raw activity/sensor data used by its own sleep-duration algorithm locally on your device. Recova does not upload those raw micro-epoch records to its servers.</li>
+                            <li><strong>Raw vs. Derived Sleep Data:</strong> Raw activity/sensor micro-epoch data used by Recova's local sleep algorithm remains on the device and is not uploaded by Recova. Recova may store derived sleep summaries, such as estimated bedtime, wake time, sleep duration, and related recovery metrics, in Firebase Firestore to provide your historical recovery features.</li>
                         </ul>
                     </div>
 
@@ -134,10 +134,11 @@
             </section>
 
             <section id="sharing" class="section-anchor py-12 border-b border-slate-200">
-                <h2 class="text-2xl font-bold text-slate-800 mb-2">2. Zero Commercial Data Sharing Guarantee</h2>
+                <h2 class="text-2xl font-bold text-slate-800 mb-2">2. No Sale or Advertising Use of Personal Data</h2>
                 <div class="h-1.5 w-10 bg-emerald-600 mb-6 rounded-full"></div>
-                <p class="text-slate-600 mb-4"><strong>Google Play Store Data Safety Compliance:</strong> Recova does <strong>NOT</strong> sell, rent, lease, trade, license, or monetize your physical activity, sleep logs, or personal information to third-party advertising networks, data brokers, analytics platforms, or commercial partners.</p>
-                <p class="text-slate-600">We explicitly disable and remove Google Advertising ID (<code class="bg-slate-100 px-1.5 py-0.5 rounded text-sm text-slate-600">AD_ID</code>) tracking (<code class="bg-slate-100 px-1.5 py-0.5 rounded text-sm text-slate-600">com.google.android.gms.permission.AD_ID</code>) from our software build. All data is processed exclusively to deliver your personal athletic recovery metrics.</p>
+                <p class="text-slate-600 mb-4">Recova does not sell or rent personal information or health-related information to advertisers, data brokers, or other commercial partners.</p>
+                <p class="text-slate-600 mb-4">We explicitly disable and remove Google Advertising ID (<code class="bg-slate-100 px-1.5 py-0.5 rounded text-sm text-slate-600">AD_ID</code>) tracking (<code class="bg-slate-100 px-1.5 py-0.5 rounded text-sm text-slate-600">com.google.android.gms.permission.AD_ID</code>) from our software build. We use your information to provide, maintain, secure, and improve Recova's fitness, recovery, and sleep-related functionality, as described in this Privacy Policy.</p>
+                <p class="text-sm text-slate-500">As described in Section 3, we rely on trusted infrastructure service providers (such as Google Cloud and Firebase) to store and process data strictly on our behalf to operate the service.</p>
             </section>
 
             <section id="security" class="section-anchor py-12 border-b border-slate-200">
@@ -146,15 +147,15 @@
                 <ul class="list-disc ml-6 space-y-3 text-slate-600">
                     <li><strong>Cloud Infrastructure:</strong> Account profiles, streaks, and recovery logs are encrypted in transit (SSL/TLS) and at rest within Google Firebase Firestore databases.</li>
                     <li><strong>Access Control:</strong> Access is governed by strict Firebase Security Rules ensuring only your authenticated account UID can read or write your personal data.</li>
-                    <li><strong>Local Storage:</strong> Ephemeral state flags (such as daily notification delivery status) are cached locally on your device in encrypted SharedPreferences.</li>
+                    <li><strong>Local Storage:</strong> Ephemeral state flags (such as daily notification delivery status) are cached locally on your device in local device storage (Android SharedPreferences).</li>
                     <li><strong>Third-Party Infrastructure (Data Subprocessors):</strong> We rely on industry-standard cloud infrastructure to operate the service: <strong>Google Cloud / Firebase</strong> (Identity authentication, Firestore database, and Cloud Messaging). We do not use any secondary third-party advertising or commercial analytics SDKs.</li>
                 </ul>
             </section>
 
             <section id="deletion" class="section-anchor py-12 border-b border-slate-200">
-                <h2 class="text-2xl font-bold text-slate-800 mb-2">4. Account Deletion, Erasure & Legal Rights</h2>
+                <h2 class="text-2xl font-bold text-slate-800 mb-2">4. Account Deletion, Erasure & Privacy Rights</h2>
                 <div class="h-1.5 w-10 bg-emerald-600 mb-6 rounded-full"></div>
-                <p class="text-slate-600 mb-4">You maintain full ownership of your data and possess the absolute right to access, rectify, or permanently erase all associated records at any time:</p>
+                <p class="text-slate-600 mb-4">Depending on your jurisdiction, you may have rights to access, correct, export, or delete your personal information.</p>
                 
                 <div class="space-y-6">
                     <div class="bg-slate-50 p-5 rounded-xl border border-slate-200">
@@ -164,23 +165,23 @@
                             <li>Navigate to <strong>More &gt; Privacy &amp; Data &gt; Delete Account</strong>.</li>
                             <li>Verify your identity via your Google Account authentication.</li>
                         </ol>
-                        <p class="text-sm text-slate-600 italic">Your account profile, streaks, workout logs, and historical sleep records will be permanently and irreversibly purged from our Firestore cloud servers.</p>
+                        <p class="text-sm text-slate-600 italic">Your account profile, streaks, workout logs, and historical sleep records will be permanently deleted from our Firestore cloud servers.</p>
                     </div>
 
                     <div class="bg-slate-50 p-5 rounded-xl border border-slate-200">
                         <h4 class="font-bold text-slate-800 mb-2">Method 2: Web / Email Account Deletion Request</h4>
                         <p class="text-sm text-slate-700">
-                            If you cannot access the mobile application, you can submit a deletion request by emailing <a href="mailto:recova.app0@gmail.com" class="text-emerald-600 font-medium hover:underline">recova.app0@gmail.com</a> with the subject line <em>"Account Deletion Request"</em> from your registered Google email address. Your account and all associated data records will be manually verified and permanently erased within <strong>48 hours</strong>.
+                            If you cannot access the mobile application, you can submit a deletion request by emailing <a href="mailto:recova.app0@gmail.com" class="text-emerald-600 font-medium hover:underline">recova.app0@gmail.com</a> with the subject line <em>"Account Deletion Request"</em> from your registered Google email address. We will process verified deletion requests within <strong>48 hours</strong> and delete the personal data associated with your Recova account that we are required and able to delete under applicable law and our data-retention practices.
                         </p>
                     </div>
 
                     <div class="bg-slate-50 p-5 rounded-xl border border-slate-200">
-                        <h4 class="font-bold text-slate-800 mb-2">Your Global Legal Rights (GDPR, CCPA/CPRA & DPDP)</h4>
-                        <p class="text-sm text-slate-600 mb-3">Depending on your jurisdiction, you possess the following statutory legal rights:</p>
+                        <h4 class="font-bold text-slate-800 mb-2">Privacy Rights</h4>
+                        <p class="text-sm text-slate-600 mb-3">Depending on your location and applicable law, you may have rights relating to access, correction, deletion, portability, or other aspects of your personal information:</p>
                         <ul class="list-disc ml-5 space-y-2 text-sm text-slate-700">
-                            <li><strong>Access & Portability:</strong> Request a digital copy of your historical workout and recovery logs.</li>
+                            <li><strong>Access &amp; Portability:</strong> Request a digital copy of your personal data and historical workout and recovery logs.</li>
                             <li><strong>Rectification:</strong> Request corrections to inaccurate personal account data.</li>
-                            <li><strong>Erasure ("Right to be Forgotten"):</strong> Permanently delete all stored account and recovery data via in-app or email request.</li>
+                            <li><strong>Erasure / Deletion:</strong> Request the permanent deletion of your stored account and recovery data via in-app or email request.</li>
                             <li><strong>Non-Discrimination:</strong> We will never degrade app performance, restrict features, or discriminate against you for exercising your privacy rights.</li>
                         </ul>
                     </div>
@@ -193,15 +194,15 @@
                 <p class="text-slate-600 mb-4">You can grant or revoke device permissions at any time:</p>
                 <ul class="list-disc ml-6 space-y-2 text-slate-600 mb-4">
                     <li><strong>Physical Activity Permission:</strong> Control via <em>Android Settings &gt; Apps &gt; Recova &gt; Permissions &gt; Physical Activity</em>.</li>
-                    <li><strong>Notifications & Alarms:</strong> Control via <em>Android Settings &gt; Notifications &gt; Recova</em>.</li>
+                    <li><strong>Notifications &amp; Alarms:</strong> Control via <em>Android Settings &gt; Notifications &gt; Recova</em>.</li>
                 </ul>
                 <p class="text-sm text-slate-500 italic">Disabling permissions may deactivate automatic sleep duration estimation, but manual sleep confirmation will remain fully operational.</p>
             </section>
 
             <section id="children" class="section-anchor py-12 border-b border-slate-200">
-                <h2 class="text-2xl font-bold text-slate-800 mb-2">6. Children’s Privacy (COPPA & GDPR Compliance)</h2>
+                <h2 class="text-2xl font-bold text-slate-800 mb-2">6. Children’s Privacy</h2>
                 <div class="h-1.5 w-10 bg-emerald-600 mb-6 rounded-full"></div>
-                <p class="text-slate-600">Recova is designed for athletes and active individuals aged 13 and older (or 16 in the European Union). We do not knowingly collect or solicit personal information from children under 13. If we learn that we have collected personal data from a child under 13 without verified parental consent, we will delete that information immediately.</p>
+                <p class="text-slate-600">Recova is not directed to children and is intended for users who meet the minimum age requirements applicable in their jurisdiction. We do not knowingly collect personal information from children in violation of applicable law. If we learn that we have collected personal data from a child without verified parental consent where required, we will delete that information promptly.</p>
             </section>
 
             <section id="changes" class="section-anchor py-12 border-b border-slate-200">
@@ -244,8 +245,8 @@
     </footer>
 
     <script>
-        // Set dynamic date to fixed value requested: August 17, 2026
-        document.getElementById('last-updated-date').textContent = "August 17, 2026";
+        // Set dynamic date to fixed value requested: September 13, 2026
+        document.getElementById('last-updated-date').textContent = "September 13, 2026";
         document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
 <script type="module" src="/index.tsx"></script>
