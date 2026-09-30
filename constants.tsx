@@ -1,9 +1,10 @@
 import React from 'react';
 
 export const APP_NAME = "RECOVA";
-export const LAST_UPDATED = "September 13, 2026";
+export const LAST_UPDATED = "September 30, 2026";
 export const CONTACT_EMAIL = "recova.app0@gmail.com";
-export const ENTITY_NAME = "RECOVA Recovery & Athletic Performance";
+export const ENTITY_NAME = "RECOVA Recovery & Sleep";
+export const LOCATION_JURISDICTION = "Chennai, Tamil Nadu, India";
 
 export const Icons = {
   Lock: () => (

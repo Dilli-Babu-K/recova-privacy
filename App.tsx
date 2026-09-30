@@ -1,6 +1,6 @@
 import React from 'react';
 import { Layout } from './components/Layout';
-import { Icons, APP_NAME, LAST_UPDATED, CONTACT_EMAIL, ENTITY_NAME } from './constants';
+import { Icons, APP_NAME, LAST_UPDATED, CONTACT_EMAIL, ENTITY_NAME, LOCATION_JURISDICTION } from './constants';
 
 const Section: React.FC<{ id: string; title: string; children: React.ReactNode }> = ({ id, title, children }) => (
   <section id={id} className="py-12 border-b border-slate-200 scroll-mt-20 last:border-0">
@@ -184,7 +184,16 @@ const App: React.FC = () => {
           </Section>
 
           <Section id="children" title="6. Children’s Privacy">
-            <p>Recova is not directed to children and is intended for users who meet the minimum age requirements applicable in their jurisdiction. We do not knowingly collect personal information from children in violation of applicable law. If we learn that we have collected personal data from a child without verified parental consent where required, we will delete that information promptly.</p>
+            <p className="mb-4">
+              Recova is strictly designed for athletes, fitness enthusiasts, and general wellness users who are at least 13 years of age (or 16 years of age in the European Economic Area and United Kingdom). We do not knowingly collect, solicit, or maintain personal information, athletic training logs, or sleep records from children under 13 years of age.
+            </p>
+            <p>
+              If you are a parent or legal guardian and discover that your child under 13 has created an account or submitted personal information to Recova, please contact us immediately at{' '}
+              <a href={`mailto:${CONTACT_EMAIL}`} className="text-emerald-600 font-medium hover:underline">
+                {CONTACT_EMAIL}
+              </a>
+              . Upon verification, we will promptly delete all associated account records, historical workout data, and sleep logs from our cloud databases.
+            </p>
           </Section>
 
           <Section id="changes" title="7. Changes to this Privacy Policy">
@@ -192,17 +201,23 @@ const App: React.FC = () => {
           </Section>
 
           <Section id="contact" title="8. Contact Information">
-            <div className="bg-slate-900 text-white p-8 rounded-3xl shadow-xl space-y-4">
-              <p className="font-bold uppercase text-xs tracking-widest opacity-70">If you have any questions or concerns regarding your privacy or data rights:</p>
+            <p className="mb-6">
+              If you have any questions, feedback, or requests regarding this Privacy Policy, your personal data, or your privacy rights, please contact us:
+            </p>
+            <div className="bg-slate-900 text-white p-8 rounded-3xl shadow-xl space-y-5">
               <div>
-                <span className="text-xs uppercase text-slate-400 font-semibold block">Email</span>
+                <span className="text-xs uppercase text-slate-400 font-semibold tracking-wider block">Official Contact Email</span>
                 <a href={`mailto:${CONTACT_EMAIL}`} className="text-2xl font-bold hover:text-emerald-400 transition-colors underline decoration-emerald-500 underline-offset-4 block mt-1">
                   {CONTACT_EMAIL}
                 </a>
               </div>
-              <div className="pt-2 border-t border-slate-800">
-                <span className="text-xs uppercase text-slate-400 font-semibold block">Entity</span>
-                <span className="text-slate-200 font-medium">{ENTITY_NAME}</span>
+              <div className="pt-4 border-t border-slate-800">
+                <span className="text-xs uppercase text-slate-400 font-semibold tracking-wider block">Operating Entity</span>
+                <span className="text-slate-100 font-semibold text-lg">{ENTITY_NAME}</span>
+              </div>
+              <div className="pt-4 border-t border-slate-800">
+                <span className="text-xs uppercase text-slate-400 font-semibold tracking-wider block">Location &amp; Jurisdiction</span>
+                <span className="text-slate-200 font-medium">{LOCATION_JURISDICTION}</span>
               </div>
             </div>
           </Section>
