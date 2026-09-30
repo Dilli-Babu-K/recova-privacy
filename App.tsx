@@ -185,14 +185,17 @@ const App: React.FC = () => {
 
           <Section id="children" title="6. Children’s Privacy">
             <p className="mb-4">
-              Recova is strictly designed for athletes, fitness enthusiasts, and general wellness users who are at least 13 years of age (or 16 years of age in the European Economic Area and United Kingdom). We do not knowingly collect, solicit, or maintain personal information, athletic training logs, or sleep records from children under 13 years of age.
+              Recova is strictly designed for athletes, fitness enthusiasts, and general wellness users. You must be at least 13 years of age to use this App (or at least 16 years of age if you reside in the European Economic Area or United Kingdom). We do not knowingly collect, solicit, or maintain personal information, training logs, or sleep records from users who do not meet these minimum age requirements.
+            </p>
+            <p className="mb-4">
+              Access to Recova requires a valid Google Account. Google's own terms of service independently enforce minimum age restrictions at account creation. Our in-app registration flow additionally verifies minimum age eligibility before account access is granted.
             </p>
             <p>
-              If you are a parent or legal guardian and discover that your child under 13 has created an account or submitted personal information to Recova, please contact us immediately at{' '}
+              If you are a parent or legal guardian and discover that your child has created an account without meeting these age requirements, please contact us immediately at{' '}
               <a href={`mailto:${CONTACT_EMAIL}`} className="text-emerald-600 font-medium hover:underline">
                 {CONTACT_EMAIL}
               </a>
-              . Upon verification, we will promptly delete all associated account records, historical workout data, and sleep logs from our cloud databases.
+              . Upon verification, we will promptly delete all associated account records, training data, and sleep logs from our servers.
             </p>
           </Section>
 
