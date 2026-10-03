@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const APP_NAME = "RECOVA";
-export const LAST_UPDATED = "September 30, 2026";
+export const LAST_UPDATED = "October 3, 2026";
 export const CONTACT_EMAIL = "recova.app0@gmail.com";
 export const ENTITY_NAME = "RECOVA Recovery & Sleep";
 export const LOCATION_JURISDICTION = "Chennai, Tamil Nadu, India";

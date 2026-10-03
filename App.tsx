@@ -44,6 +44,7 @@ const App: React.FC = () => {
             {[
               { id: 'intro', title: 'Introduction & Overview' },
               { id: 'collect', title: '1. Information We Collect' },
+              { id: 'benchmarks', title: '1E. Sleep Comparison & Benchmark Content' },
               { id: 'sharing', title: '2. No Sale or Advertising Use' },
               { id: 'security', title: '3. Data Storage & Security' },
               { id: 'deletion', title: '4. Account Deletion & Privacy Rights' },
@@ -122,6 +123,18 @@ const App: React.FC = () => {
                   <li>Local crash logs to resolve bugs and performance bottlenecks.</li>
                 </ul>
               </div>
+            </div>
+          </Section>
+
+          <Section id="benchmarks" title="1E. Sleep Comparison & Benchmark Content">
+            <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-4">
+              <h3 className="text-lg font-bold text-slate-800 mb-2">E. Sleep Comparison &amp; Benchmark Content</h3>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                Recova displays contextual sleep comparison cards referencing animals, athletes, historical figures, and science scenarios (such as "Elite Basketball MVP," "Grand Slam Athlete," "Glymphatic Rest Cycles," or "ISS Space Orbits"). These comparisons are shown for motivational context and general wellness awareness only.
+              </p>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                The reference hours shown in these cards are approximate general figures sourced from publicly available information. They are not exact, verified, or scientifically validated measurements. These cards do not represent endorsements by, affiliations with, or verified data from any real individual, sports organisation, scientific body, or institution. Recova makes no claim that any user's sleep is medically equivalent to or clinically comparable to any referenced benchmark.
+              </p>
             </div>
           </Section>
 
